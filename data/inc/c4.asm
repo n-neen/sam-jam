@@ -12,3 +12,8 @@ overworld_data: {
     .dummylabel
 }
 
+overworld_sprites: {
+    .pal:   incbin "./data/pal/sprites/overworld_sprites.pal"
+    .gfx:   incbin "./data/gfx/sprites/overworld_sprites.gfx"
+    .dummylabel
+}

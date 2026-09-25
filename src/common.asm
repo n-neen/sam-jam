@@ -79,7 +79,7 @@ scenetransition: {
     lda $0000,x
     sta.l w_scene_mode
     
-    cmp #!state_overworld
+    cmp #!state_setupoverworld
     beq .overworld
     
     cmp #!state_loadgame        ;if not gameplay, go to nongameplay
@@ -215,6 +215,23 @@ spritesoff: {
     
     rep #$20
     rts
+}
+
+
+spriteson: {
+    sep #$20
+    
+    lda w_mainscreenlayers
+    ora #%00010000
+    sta w_mainscreenlayers
+    
+    rep #$20
+    rts
+    
+    .long: {
+        jsr spriteson
+        rtl
+    }
 }
 
 

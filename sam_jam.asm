@@ -58,6 +58,7 @@ org $818000
         incsrc "./src/fae/arrow.asm"
         incsrc "./src/fae/explosion.asm"
         incsrc "./src/fae/door.asm"
+        incsrc "./src/fae/overworld_sam.asm"
         
     print "81 end: ", pc, " fae code, spritemaps"
     

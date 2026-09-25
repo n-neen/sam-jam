@@ -1039,9 +1039,17 @@ setupresumedgame: {
     lda #!player_hp_default
     sta w_player_hp
     
+    ;initialize message tilemap
+    jsr layer3off
+    jsl msg_cleartilemap
+    lda #$0001
+    sta w_msg_uploadflag
+    lda #$0800
+    sta w_msg_size
+    
     jsr initspecialfx_forresumedgame        ;make sure hdma on bg2 is over being touched
         
-    lda #!state_loadgame
+    lda #!state_setupoverworld
     sta w_programstate
     
     jsr enablenmi
