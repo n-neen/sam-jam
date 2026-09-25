@@ -1,0 +1,225 @@
+808FE1  phb                            A:0000 X:FFFE Y:009F S:1FFA D:0000 DB:80 P:NvmxdIzC V:25  H:181 Cycle:23217483
+808FE2  phk                            A:0000 X:FFFE Y:009F S:1FF9 D:0000 DB:80 P:NvmxdIzC V:25  H:186 Cycle:23217486
+808FE3  plb                            A:0000 X:FFFE Y:009F S:1FF8 D:0000 DB:80 P:NvmxdIzC V:25  H:191 Cycle:23217489
+808FE4  ldx #$003e                     A:0000 X:FFFE Y:009F S:1FF9 D:0000 DB:80 P:NvmxdIzC V:25  H:198 Cycle:23217493
+808FE7  lda $0182,x [$8001C0] = $91F6  A:0000 X:003E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzC V:25  H:202 Cycle:23217496
+808FEA  beq _pos_1_28                  A:91F6 X:003E Y:009F S:1FF9 D:0000 DB:80 P:NvmxdIzC V:25  H:212 Cycle:23217502
+808FEC  lda $0302,x [$800340] = $0234  A:91F6 X:003E Y:009F S:1FF9 D:0000 DB:80 P:NvmxdIzC V:25  H:215 Cycle:23217504
+808FEF  beq _pos_1_28                  A:0234 X:003E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzC V:25  H:225 Cycle:23217510
+808FF1  jsr $8ffa [obj_draw]           A:0234 X:003E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzC V:25  H:228 Cycle:23217512
+808FFA  phy                            A:0234 X:003E Y:009F S:1FF7 D:0000 DB:80 P:nvmxdIzC V:25  H:238 Cycle:23217518
+808FFB  phx                            A:0234 X:003E Y:009F S:1FF5 D:0000 DB:80 P:nvmxdIzC V:25  H:245 Cycle:23217522
+808FFC  stx $0486 [w_obj_index] = $0000 A:0234 X:003E Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:252 Cycle:23217526
+808FFF  stz $0484 [w_obj_drawindex] = $0000 A:0234 X:003E Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:261 Cycle:23217531
+809002  lda $0342,x [$800380] = $0033  A:0234 X:003E Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:269 Cycle:23217536
+809005  sta $00 [p_0] = $2020          A:0033 X:003E Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:279 Cycle:23217542
+809007  lda $0382,x [$8003C0] = $003B  A:0033 X:003E Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:286 Cycle:23217546
+80900A  sta $02 [p_2] = $00C3          A:003B X:003E Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:296 Cycle:23217552
+80900C  lda $00 [p_0] = $0033          A:003B X:003E Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:303 Cycle:23217556
+80900E  cmp #$0020                     A:0033 X:003E Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:310 Cycle:23217560
+809011  bpl obj_draw_righthalf         A:0033 X:003E Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:315 Cycle:23217563
+809030  lda $02 [p_2] = $003B          A:0033 X:003E Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:319 Cycle:23217566
+809032  cmp #$0020                     A:003B X:003E Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:326 Cycle:23217570
+809035  bmi _pos_1_30                  A:003B X:003E Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:330 Cycle:23217573
+809037  ldx #$0008                     A:003B X:003E Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:333 Cycle:23217575
+80903A  lda #$1800                     A:003B X:0008 Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:25  H:337 Cycle:23217578
+80903D  jsr $9059 [obj_screen]         A:1800 X:0008 Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzC V:26  H:2   Cycle:23217581
+809059  sta $04 [p_4] = $0000          A:1800 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:12  Cycle:23217587
+80905B  txa                            A:1800 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:19  Cycle:23217591
+80905C  ora $0482 [w_obj_screenupdates] = $0000 A:0008 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:22  Cycle:23217593
+80905F  sta $0482 [w_obj_screenupdates] = $0000 A:0008 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:30  Cycle:23217598
+809062  lda $00 [p_0] = $0033          A:0008 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:39  Cycle:23217603
+809064  and #$001f                     A:0033 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:46  Cycle:23217607
+809067  sta $00 [p_0] = $0033          A:0013 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:50  Cycle:23217610
+809069  lda $02 [p_2] = $003B          A:0013 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:57  Cycle:23217614
+80906B  and #$001f                     A:003B X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:64  Cycle:23217618
+80906E  sta $02 [p_2] = $003B          A:001B X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:69  Cycle:23217621
+809070  sep #$20                       A:001B X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:76  Cycle:23217625
+809072  lda $02 [p_2] = $1B            A:001B X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvMxdIzC V:26  H:80  Cycle:23217628
+809074  sta $4202 [WRMPYA] = $8D       A:001B X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvMxdIzC V:26  H:85  Cycle:23217631
+809077  lda #$20                       A:001B X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvMxdIzC V:26  H:91  Cycle:23217635
+809079  sta $4203 [WRMPYB] = $8D       A:0020 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvMxdIzC V:26  H:94  Cycle:23217637
+80907C  rep #$20                       A:0020 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvMxdIzC V:26  H:100 Cycle:23217641
+80907E  nop                            A:0020 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:105 Cycle:23217644
+80907F  nop                            A:0020 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:108 Cycle:23217646
+809080  nop                            A:0020 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:111 Cycle:23217648
+809081  nop                            A:0020 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:114 Cycle:23217650
+809082  nop                            A:0020 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:117 Cycle:23217652
+809083  nop                            A:0020 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:120 Cycle:23217654
+809084  nop                            A:0020 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:123 Cycle:23217656
+809085  nop                            A:0020 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:126 Cycle:23217658
+809086  lda $4216 [RDMPYL] = $0000     A:0020 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:129 Cycle:23217660
+809089  asl                            A:0360 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzC V:26  H:146 Cycle:23217665
+80908A  clc                            A:06C0 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzc V:26  H:149 Cycle:23217667
+80908B  adc $00 [p_0] = $0013          A:06C0 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzc V:26  H:152 Cycle:23217669
+80908D  adc $00 [p_0] = $0013          A:06D3 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzc V:26  H:159 Cycle:23217673
+80908F  clc                            A:06E6 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzc V:26  H:166 Cycle:23217677
+809090  adc $04 [p_4] = $1800          A:06E6 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzc V:26  H:169 Cycle:23217679
+809092  rts                            A:1EE6 X:0008 Y:009F S:1FF1 D:0000 DB:80 P:nvmxdIzc V:26  H:176 Cycle:23217683
+809040  bra obj_draw_write             A:1EE6 X:0008 Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzc V:26  H:186 Cycle:23217689
+80904B  tax                            A:1EE6 X:0008 Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzc V:26  H:191 Cycle:23217692
+80904C  ldy $0486 [w_obj_index] = $003E A:1EE6 X:1EE6 Y:009F S:1FF3 D:0000 DB:80 P:nvmxdIzc V:26  H:194 Cycle:23217694
+80904F  lda $0302,y [$800340] = $0234  A:1EE6 X:1EE6 Y:003E S:1FF3 D:0000 DB:80 P:nvmxdIzc V:26  H:202 Cycle:23217699
+809052  sta l_level_screen0,x [$7F1EE6] = $0492 A:0234 X:1EE6 Y:003E S:1FF3 D:0000 DB:80 P:nvmxdIzc V:26  H:212 Cycle:23217705
+809056  plx                            A:0234 X:1EE6 Y:003E S:1FF3 D:0000 DB:80 P:nvmxdIzc V:26  H:222 Cycle:23217711
+809057  ply                            A:0234 X:003E Y:003E S:1FF5 D:0000 DB:80 P:nvmxdIzc V:26  H:231 Cycle:23217716
+809058  rts                            A:0234 X:003E Y:009F S:1FF7 D:0000 DB:80 P:nvmxdIzc V:26  H:239 Cycle:23217721
+808FF4  dex                            A:0234 X:003E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:26  H:249 Cycle:23217727
+808FF5  dex                            A:0234 X:003D Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:26  H:252 Cycle:23217729
+808FF6  bpl _neg_1_20                  A:0234 X:003C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:26  H:255 Cycle:23217731
+808FE7  lda $0182,x [$8001BE] = $0000  A:0234 X:003C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:26  H:260 Cycle:23217734
+808FEA  beq _pos_1_28                  A:0000 X:003C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:26  H:270 Cycle:23217740
+808FF4  dex                            A:0000 X:003C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:26  H:274 Cycle:23217743
+808FF5  dex                            A:0000 X:003B Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:26  H:277 Cycle:23217745
+808FF6  bpl _neg_1_20                  A:0000 X:003A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:26  H:280 Cycle:23217747
+808FE7  lda $0182,x [$8001BC] = $0000  A:0000 X:003A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:26  H:285 Cycle:23217750
+808FEA  beq _pos_1_28                  A:0000 X:003A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:26  H:295 Cycle:23217756
+808FF4  dex                            A:0000 X:003A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:26  H:299 Cycle:23217759
+808FF5  dex                            A:0000 X:0039 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:26  H:302 Cycle:23217761
+808FF6  bpl _neg_1_20                  A:0000 X:0038 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:26  H:305 Cycle:23217763
+808FE7  lda $0182,x [$8001BA] = $0000  A:0000 X:0038 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:26  H:310 Cycle:23217766
+808FEA  beq _pos_1_28                  A:0000 X:0038 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:26  H:320 Cycle:23217772
+808FF4  dex                            A:0000 X:0038 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:26  H:324 Cycle:23217775
+808FF5  dex                            A:0000 X:0037 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:26  H:327 Cycle:23217777
+808FF6  bpl _neg_1_20                  A:0000 X:0036 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:26  H:329 Cycle:23217779
+808FE7  lda $0182,x [$8001B8] = $0000  A:0000 X:0036 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:26  H:334 Cycle:23217782
+808FEA  beq _pos_1_28                  A:0000 X:0036 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:4   Cycle:23217788
+808FF4  dex                            A:0000 X:0036 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:8   Cycle:23217791
+808FF5  dex                            A:0000 X:0035 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:11  Cycle:23217793
+808FF6  bpl _neg_1_20                  A:0000 X:0034 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:14  Cycle:23217795
+808FE7  lda $0182,x [$8001B6] = $0000  A:0000 X:0034 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:19  Cycle:23217798
+808FEA  beq _pos_1_28                  A:0000 X:0034 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:29  Cycle:23217804
+808FF4  dex                            A:0000 X:0034 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:33  Cycle:23217807
+808FF5  dex                            A:0000 X:0033 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:36  Cycle:23217809
+808FF6  bpl _neg_1_20                  A:0000 X:0032 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:39  Cycle:23217811
+808FE7  lda $0182,x [$8001B4] = $0000  A:0000 X:0032 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:44  Cycle:23217814
+808FEA  beq _pos_1_28                  A:0000 X:0032 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:54  Cycle:23217820
+808FF4  dex                            A:0000 X:0032 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:58  Cycle:23217823
+808FF5  dex                            A:0000 X:0031 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:61  Cycle:23217825
+808FF6  bpl _neg_1_20                  A:0000 X:0030 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:64  Cycle:23217827
+808FE7  lda $0182,x [$8001B2] = $0000  A:0000 X:0030 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:69  Cycle:23217830
+808FEA  beq _pos_1_28                  A:0000 X:0030 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:79  Cycle:23217836
+808FF4  dex                            A:0000 X:0030 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:83  Cycle:23217839
+808FF5  dex                            A:0000 X:002F Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:86  Cycle:23217841
+808FF6  bpl _neg_1_20                  A:0000 X:002E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:89  Cycle:23217843
+808FE7  lda $0182,x [$8001B0] = $0000  A:0000 X:002E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:94  Cycle:23217846
+808FEA  beq _pos_1_28                  A:0000 X:002E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:104 Cycle:23217852
+808FF4  dex                            A:0000 X:002E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:108 Cycle:23217855
+808FF5  dex                            A:0000 X:002D Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:111 Cycle:23217857
+808FF6  bpl _neg_1_20                  A:0000 X:002C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:114 Cycle:23217859
+808FE7  lda $0182,x [$8001AE] = $0000  A:0000 X:002C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:119 Cycle:23217862
+808FEA  beq _pos_1_28                  A:0000 X:002C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:129 Cycle:23217868
+808FF4  dex                            A:0000 X:002C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:143 Cycle:23217871
+808FF5  dex                            A:0000 X:002B Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:146 Cycle:23217873
+808FF6  bpl _neg_1_20                  A:0000 X:002A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:149 Cycle:23217875
+808FE7  lda $0182,x [$8001AC] = $0000  A:0000 X:002A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:154 Cycle:23217878
+808FEA  beq _pos_1_28                  A:0000 X:002A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:164 Cycle:23217884
+808FF4  dex                            A:0000 X:002A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:168 Cycle:23217887
+808FF5  dex                            A:0000 X:0029 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:171 Cycle:23217889
+808FF6  bpl _neg_1_20                  A:0000 X:0028 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:174 Cycle:23217891
+808FE7  lda $0182,x [$8001AA] = $0000  A:0000 X:0028 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:179 Cycle:23217894
+808FEA  beq _pos_1_28                  A:0000 X:0028 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:189 Cycle:23217900
+808FF4  dex                            A:0000 X:0028 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:193 Cycle:23217903
+808FF5  dex                            A:0000 X:0027 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:196 Cycle:23217905
+808FF6  bpl _neg_1_20                  A:0000 X:0026 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:199 Cycle:23217907
+808FE7  lda $0182,x [$8001A8] = $0000  A:0000 X:0026 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:204 Cycle:23217910
+808FEA  beq _pos_1_28                  A:0000 X:0026 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:214 Cycle:23217916
+808FF4  dex                            A:0000 X:0026 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:218 Cycle:23217919
+808FF5  dex                            A:0000 X:0025 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:221 Cycle:23217921
+808FF6  bpl _neg_1_20                  A:0000 X:0024 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:224 Cycle:23217923
+808FE7  lda $0182,x [$8001A6] = $0000  A:0000 X:0024 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:229 Cycle:23217926
+808FEA  beq _pos_1_28                  A:0000 X:0024 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:239 Cycle:23217932
+808FF4  dex                            A:0000 X:0024 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:243 Cycle:23217935
+808FF5  dex                            A:0000 X:0023 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:246 Cycle:23217937
+808FF6  bpl _neg_1_20                  A:0000 X:0022 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:249 Cycle:23217939
+808FE7  lda $0182,x [$8001A4] = $0000  A:0000 X:0022 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:254 Cycle:23217942
+808FEA  beq _pos_1_28                  A:0000 X:0022 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:264 Cycle:23217948
+808FF4  dex                            A:0000 X:0022 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:268 Cycle:23217951
+808FF5  dex                            A:0000 X:0021 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:271 Cycle:23217953
+808FF6  bpl _neg_1_20                  A:0000 X:0020 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:274 Cycle:23217955
+808FE7  lda $0182,x [$8001A2] = $0000  A:0000 X:0020 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:279 Cycle:23217958
+808FEA  beq _pos_1_28                  A:0000 X:0020 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:289 Cycle:23217964
+808FF4  dex                            A:0000 X:0020 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:293 Cycle:23217967
+808FF5  dex                            A:0000 X:001F Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:296 Cycle:23217969
+808FF6  bpl _neg_1_20                  A:0000 X:001E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:299 Cycle:23217971
+808FE7  lda $0182,x [$8001A0] = $0000  A:0000 X:001E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:304 Cycle:23217974
+808FEA  beq _pos_1_28                  A:0000 X:001E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:314 Cycle:23217980
+808FF4  dex                            A:0000 X:001E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:318 Cycle:23217983
+808FF5  dex                            A:0000 X:001D Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:321 Cycle:23217985
+808FF6  bpl _neg_1_20                  A:0000 X:001C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:324 Cycle:23217987
+808FE7  lda $0182,x [$80019E] = $0000  A:0000 X:001C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:27  H:328 Cycle:23217990
+808FEA  beq _pos_1_28                  A:0000 X:001C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:27  H:338 Cycle:23217996
+808FF4  dex                            A:0000 X:001C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:2   Cycle:23217999
+808FF5  dex                            A:0000 X:001B Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:5   Cycle:23218001
+808FF6  bpl _neg_1_20                  A:0000 X:001A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:8   Cycle:23218003
+808FE7  lda $0182,x [$80019C] = $0000  A:0000 X:001A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:13  Cycle:23218006
+808FEA  beq _pos_1_28                  A:0000 X:001A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:23  Cycle:23218012
+808FF4  dex                            A:0000 X:001A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:27  Cycle:23218015
+808FF5  dex                            A:0000 X:0019 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:30  Cycle:23218017
+808FF6  bpl _neg_1_20                  A:0000 X:0018 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:33  Cycle:23218019
+808FE7  lda $0182,x [$80019A] = $0000  A:0000 X:0018 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:38  Cycle:23218022
+808FEA  beq _pos_1_28                  A:0000 X:0018 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:48  Cycle:23218028
+808FF4  dex                            A:0000 X:0018 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:52  Cycle:23218031
+808FF5  dex                            A:0000 X:0017 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:55  Cycle:23218033
+808FF6  bpl _neg_1_20                  A:0000 X:0016 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:58  Cycle:23218035
+808FE7  lda $0182,x [$800198] = $0000  A:0000 X:0016 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:63  Cycle:23218038
+808FEA  beq _pos_1_28                  A:0000 X:0016 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:73  Cycle:23218044
+808FF4  dex                            A:0000 X:0016 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:77  Cycle:23218047
+808FF5  dex                            A:0000 X:0015 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:80  Cycle:23218049
+808FF6  bpl _neg_1_20                  A:0000 X:0014 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:83  Cycle:23218051
+808FE7  lda $0182,x [$800196] = $0000  A:0000 X:0014 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:88  Cycle:23218054
+808FEA  beq _pos_1_28                  A:0000 X:0014 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:98  Cycle:23218060
+808FF4  dex                            A:0000 X:0014 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:102 Cycle:23218063
+808FF5  dex                            A:0000 X:0013 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:105 Cycle:23218065
+808FF6  bpl _neg_1_20                  A:0000 X:0012 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:108 Cycle:23218067
+808FE7  lda $0182,x [$800194] = $0000  A:0000 X:0012 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:113 Cycle:23218070
+808FEA  beq _pos_1_28                  A:0000 X:0012 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:123 Cycle:23218076
+808FF4  dex                            A:0000 X:0012 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:127 Cycle:23218079
+808FF5  dex                            A:0000 X:0011 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:130 Cycle:23218081
+808FF6  bpl _neg_1_20                  A:0000 X:0010 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:133 Cycle:23218083
+808FE7  lda $0182,x [$800192] = $0000  A:0000 X:0010 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:148 Cycle:23218086
+808FEA  beq _pos_1_28                  A:0000 X:0010 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:158 Cycle:23218092
+808FF4  dex                            A:0000 X:0010 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:162 Cycle:23218095
+808FF5  dex                            A:0000 X:000F Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:165 Cycle:23218097
+808FF6  bpl _neg_1_20                  A:0000 X:000E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:168 Cycle:23218099
+808FE7  lda $0182,x [$800190] = $0000  A:0000 X:000E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:173 Cycle:23218102
+808FEA  beq _pos_1_28                  A:0000 X:000E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:183 Cycle:23218108
+808FF4  dex                            A:0000 X:000E Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:187 Cycle:23218111
+808FF5  dex                            A:0000 X:000D Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:190 Cycle:23218113
+808FF6  bpl _neg_1_20                  A:0000 X:000C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:193 Cycle:23218115
+808FE7  lda $0182,x [$80018E] = $0000  A:0000 X:000C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:198 Cycle:23218118
+808FEA  beq _pos_1_28                  A:0000 X:000C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:208 Cycle:23218124
+808FF4  dex                            A:0000 X:000C Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:212 Cycle:23218127
+808FF5  dex                            A:0000 X:000B Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:215 Cycle:23218129
+808FF6  bpl _neg_1_20                  A:0000 X:000A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:218 Cycle:23218131
+808FE7  lda $0182,x [$80018C] = $0000  A:0000 X:000A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:223 Cycle:23218134
+808FEA  beq _pos_1_28                  A:0000 X:000A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:233 Cycle:23218140
+808FF4  dex                            A:0000 X:000A Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:237 Cycle:23218143
+808FF5  dex                            A:0000 X:0009 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:240 Cycle:23218145
+808FF6  bpl _neg_1_20                  A:0000 X:0008 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:243 Cycle:23218147
+808FE7  lda $0182,x [$80018A] = $0000  A:0000 X:0008 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:248 Cycle:23218150
+808FEA  beq _pos_1_28                  A:0000 X:0008 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:258 Cycle:23218156
+808FF4  dex                            A:0000 X:0008 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:262 Cycle:23218159
+808FF5  dex                            A:0000 X:0007 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:265 Cycle:23218161
+808FF6  bpl _neg_1_20                  A:0000 X:0006 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:268 Cycle:23218163
+808FE7  lda $0182,x [$800188] = $0000  A:0000 X:0006 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:273 Cycle:23218166
+808FEA  beq _pos_1_28                  A:0000 X:0006 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:283 Cycle:23218172
+808FF4  dex                            A:0000 X:0006 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:287 Cycle:23218175
+808FF5  dex                            A:0000 X:0005 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:290 Cycle:23218177
+808FF6  bpl _neg_1_20                  A:0000 X:0004 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:293 Cycle:23218179
+808FE7  lda $0182,x [$800186] = $0000  A:0000 X:0004 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:298 Cycle:23218182
+808FEA  beq _pos_1_28                  A:0000 X:0004 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:308 Cycle:23218188
+808FF4  dex                            A:0000 X:0004 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:312 Cycle:23218191
+808FF5  dex                            A:0000 X:0003 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:315 Cycle:23218193
+808FF6  bpl _neg_1_20                  A:0000 X:0002 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:318 Cycle:23218195
+808FE7  lda $0182,x [$800184] = $0000  A:0000 X:0002 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:323 Cycle:23218198
+808FEA  beq _pos_1_28                  A:0000 X:0002 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:332 Cycle:23218204
+808FF4  dex                            A:0000 X:0002 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:28  H:336 Cycle:23218207
+808FF5  dex                            A:0000 X:0001 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIzc V:28  H:339 Cycle:23218209
+808FF6  bpl _neg_1_20                  A:0000 X:0000 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:29  H:2   Cycle:23218211
+808FE7  lda $0182,x [w_obj_id] = $0000 A:0000 X:0000 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:29  H:7   Cycle:23218214
+808FEA  beq _pos_1_28                  A:0000 X:0000 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:29  H:17  Cycle:23218220
+808FF4  dex                            A:0000 X:0000 Y:009F S:1FF9 D:0000 DB:80 P:nvmxdIZc V:29  H:21  Cycle:23218223
+808FF5  dex                            A:0000 X:FFFF Y:009F S:1FF9 D:0000 DB:80 P:NvmxdIzc V:29  H:24  Cycle:23218225
+808FF6  bpl _neg_1_20                  A:0000 X:FFFE Y:009F S:1FF9 D:0000 DB:80 P:NvmxdIzc V:29  H:27  Cycle:23218227
+808FF8  plb                            A:0000 X:FFFE Y:009F S:1FF9 D:0000 DB:80 P:NvmxdIzc V:29  H:30  Cycle:23218229

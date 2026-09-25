@@ -1,0 +1,249 @@
+;top level label is "hdma"
+
+.interleaved_direct: {
+    dw ..init, ..routine
+    dl ..table          ;bank byte is written last
+    dw $1002            ;parameters for $43x0/43x1: ppu target is high byte. transfur type is low byte
+    
+    ..init: {
+        ;x = object index
+        
+        rts
+    }
+    
+    ..routine: {
+        rts
+    }
+    
+    ..table: {
+        ;direct hdma table
+        
+        db $01 : dw $0000
+        db $01 : dw $00FF
+        db $01 : dw $0001
+        db $01 : dw $00FE
+        db $01 : dw $0003
+        db $01 : dw $00FC
+        db $01 : dw $0004
+        db $01 : dw $00FB
+        db $01 : dw $0006
+        db $01 : dw $00F9
+        db $01 : dw $0007
+        db $01 : dw $00F8
+        db $01 : dw $0009
+        db $01 : dw $00F7
+        db $01 : dw $000A
+        db $01 : dw $00F5
+        db $01 : dw $000B
+        db $01 : dw $00F4
+        db $01 : dw $000D
+        db $01 : dw $00F3
+        db $01 : dw $000E
+        db $01 : dw $00F1
+        db $01 : dw $000F
+        db $01 : dw $00F0
+        db $01 : dw $0011
+        db $01 : dw $00EF
+        db $01 : dw $0012
+        db $01 : dw $00EE
+        db $01 : dw $0013
+        db $01 : dw $00EC
+        db $01 : dw $0014
+        db $01 : dw $00EB
+        db $01 : dw $0015
+        db $01 : dw $00EA
+        db $01 : dw $0016
+        db $01 : dw $00E9
+        db $01 : dw $0017
+        db $01 : dw $00E8
+        db $01 : dw $0018
+        db $01 : dw $00E7
+        db $01 : dw $0019
+        db $01 : dw $00E7
+        db $01 : dw $001A
+        db $01 : dw $00E6
+        db $01 : dw $001A
+        db $01 : dw $00E5
+        db $01 : dw $001B
+        db $01 : dw $00E5
+        db $01 : dw $001C
+        db $01 : dw $00E4
+        db $01 : dw $001C
+        db $01 : dw $00E4
+        db $01 : dw $001D
+        db $01 : dw $00E3
+        db $01 : dw $001D
+        db $01 : dw $00E3
+        db $01 : dw $001D
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001D
+        db $01 : dw $00E3
+        db $01 : dw $001D
+        db $01 : dw $00E3
+        db $01 : dw $001D
+        db $01 : dw $00E4
+        db $01 : dw $001C
+        db $01 : dw $00E4
+        db $01 : dw $001C
+        db $01 : dw $00E5
+        db $01 : dw $001B
+        db $01 : dw $00E5
+        db $01 : dw $001A
+        db $01 : dw $00E6
+        db $01 : dw $001A
+        db $01 : dw $00E7
+        db $01 : dw $0019
+        db $01 : dw $00E7
+        db $01 : dw $0018
+        db $01 : dw $00E8
+        db $01 : dw $0017
+        db $01 : dw $00E9
+        db $01 : dw $0016
+        db $01 : dw $00EA
+        db $01 : dw $0015
+        db $01 : dw $00EB
+        db $01 : dw $0014
+        db $01 : dw $00EC
+        db $01 : dw $0013
+        db $01 : dw $00EE
+        db $01 : dw $0012
+        db $01 : dw $00EF
+        db $01 : dw $0011
+        db $01 : dw $00F0
+        db $01 : dw $000F
+        db $01 : dw $00F1
+        db $01 : dw $000E
+        db $01 : dw $00F3
+        db $01 : dw $000D
+        db $01 : dw $00F4
+        db $01 : dw $000B
+        db $01 : dw $00F5
+        db $01 : dw $000A
+        db $01 : dw $00F7
+        db $01 : dw $0009
+        db $01 : dw $00F8
+        db $01 : dw $0007
+        db $01 : dw $00F9
+        db $01 : dw $0006
+        db $01 : dw $00FB
+        db $01 : dw $0004
+        db $01 : dw $00FC
+        db $01 : dw $0003
+        db $01 : dw $00FE
+        db $01 : dw $0001
+        db $01 : dw $00FF
+        db $01 : dw $0000
+        db $01 : dw $0001
+        db $01 : dw $00FF
+        db $01 : dw $0002
+        db $01 : dw $00FD
+        db $01 : dw $0004
+        db $01 : dw $00FC
+        db $01 : dw $0005
+        db $01 : dw $00FA
+        db $01 : dw $0007
+        db $01 : dw $00F9
+        db $01 : dw $0008
+        db $01 : dw $00F7
+        db $01 : dw $0009
+        db $01 : dw $00F6
+        db $01 : dw $000B
+        db $01 : dw $00F5
+        db $01 : dw $000C
+        db $01 : dw $00F3
+        db $01 : dw $000D
+        db $01 : dw $00F2
+        db $01 : dw $000F
+        db $01 : dw $00F1
+        db $01 : dw $0010
+        db $01 : dw $00EF
+        db $01 : dw $0011
+        db $01 : dw $00EE
+        db $01 : dw $0012
+        db $01 : dw $00ED
+        db $01 : dw $0014
+        db $01 : dw $00EC
+        db $01 : dw $0015
+        db $01 : dw $00EB
+        db $01 : dw $0016
+        db $01 : dw $00EA
+        db $01 : dw $0017
+        db $01 : dw $00E9
+        db $01 : dw $0018
+        db $01 : dw $00E8
+        db $01 : dw $0019
+        db $01 : dw $00E7
+        db $01 : dw $0019
+        db $01 : dw $00E6
+        db $01 : dw $001A
+        db $01 : dw $00E6
+        db $01 : dw $001B
+        db $01 : dw $00E5
+        db $01 : dw $001B
+        db $01 : dw $00E4
+        db $01 : dw $001C
+        db $01 : dw $00E4
+        db $01 : dw $001C
+        db $01 : dw $00E3
+        db $01 : dw $001D
+        db $01 : dw $00E3
+        db $01 : dw $001D
+        db $01 : dw $00E3
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E2
+        db $01 : dw $001E
+        db $01 : dw $00E3
+        db $01 : dw $001D
+        db $01 : dw $00E3
+        db $01 : dw $001D
+        db $01 : dw $00E3
+        db $01 : dw $001C
+        db $01 : dw $00E4
+        db $01 : dw $001C
+        db $01 : dw $00E4
+        db $01 : dw $001B
+        db $01 : dw $00E5
+        db $01 : dw $001B
+        db $01 : dw $00E6
+        db $01 : dw $001A
+        db $01 : dw $00E6
+        db $01 : dw $0019
+        db $01 : dw $00E7
+        db $01 : dw $0019
+        db $01 : dw $00E8
+        db $01 : dw $0018
+        db $01 : dw $00E9
+        db $01 : dw $0017
+        db $01 : dw $00EA
+        db $01 : dw $0016
+        db $00
+    }
+    
+}
+

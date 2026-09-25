@@ -1,0 +1,19 @@
+write overworld
+    nodes
+    load levels
+    movement of char
+    
+remove robot past assets
+    install sam assets
+    
+draw
+    draw
+        draw
+            draw
+            
+make gravity
+    oh right collision doesn't work very well
+    
+    
+maybe remove sram implementation if not enough time
+    

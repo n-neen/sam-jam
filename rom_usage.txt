@@ -1,0 +1,36 @@
+7/26/26 11:41pm
+
+
+work ram start: 7E0100
+player start 7E0136
+player end   7E017A
+obj start: 7E01D6
+obj end:   7E051C
+oam buffer: 7E051C
+fae start: 7E0803
+fae end:   7E0AF1
+shot start: 7E0AF1
+shot end:   7E0C25
+work ram end:   7E0DBB
+
+
+                                                                ;
+80 end: 80A871 main system bank                                 ;10,353
+81 end: 819429 fae code, spritemaps; color cycling; hdma        ; 1,429
+c0 end: C0099F scenedef, obj/fae lists, strings                 ; 2,463
+c1 end: C146FC                                                  ;18,172
+c2 end: C252A6                                                  ;21,158
+c3 end: C3B542                                                  ;46,406
+c4 end: C49962                                                  ;39,266
+c5 end: C56FA4                                                  ;28,580
+c6 end: C6FA42                                                  ;64,066
+c7 end: C77682                                                  ;30,338
+c8 end: C86000 collision maps                                   ;24,576
+c9 end: C95340 game over tilemaps, graphics, palettes           ;21,312
+ca end: CAA100                                                  ;41,216
+cb end: CBB7A0 title screen tilemaps, graphics, palettes        ;47,008
+cc end: CC0000                                                  ;0
+cd end: CD0000                                                  ;0
+ce end: CE0000                                                  ;0
+cf end: CF0000                                                  ;0
+total                                                           ;396,343

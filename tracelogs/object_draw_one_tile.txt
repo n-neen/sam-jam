@@ -1,0 +1,56 @@
+808FFA  phy                            A:0234 X:003E Y:00BF S:1FF7 D:0000 DB:80 P:nvmxdIzC V:28  H:19  Cycle:45053606
+808FFB  phx                            A:0234 X:003E Y:00BF S:1FF5 D:0000 DB:80 P:nvmxdIzC V:28  H:26  Cycle:45053610
+808FFC  stx $0486 [w_obj_index] = $003E A:0234 X:003E Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIzC V:28  H:33  Cycle:45053614
+808FFF  stz $0484 [w_obj_drawindex] = $0000 A:0234 X:003E Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIzC V:28  H:41  Cycle:45053619
+809002  lda $0342,x [$800380] = $001A  A:0234 X:003E Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIzC V:28  H:50  Cycle:45053624
+809005  sta $00 [p_0] = $0000          A:001A X:003E Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIzC V:28  H:60  Cycle:45053630
+809007  lda $0382,x [$8003C0] = $0013  A:001A X:003E Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIzC V:28  H:67  Cycle:45053634
+80900A  sta $02 [p_2] = $00C4          A:0013 X:003E Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIzC V:28  H:77  Cycle:45053640
+80900C  lda $00 [p_0] = $001A          A:0013 X:003E Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIzC V:28  H:84  Cycle:45053644
+80900E  cmp #$0020                     A:001A X:003E Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIzC V:28  H:91  Cycle:45053648
+809011  bpl obj_draw_righthalf         A:001A X:003E Y:00BF S:1FF3 D:0000 DB:80 P:NvmxdIzc V:28  H:95  Cycle:45053651
+809013  lda $02 [p_2] = $0013          A:001A X:003E Y:00BF S:1FF3 D:0000 DB:80 P:NvmxdIzc V:28  H:98  Cycle:45053653
+809015  cmp #$0020                     A:0013 X:003E Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIzc V:28  H:105 Cycle:45053657
+809018  bpl _pos_1_29                  A:0013 X:003E Y:00BF S:1FF3 D:0000 DB:80 P:NvmxdIzc V:28  H:110 Cycle:45053660
+80901A  ldx #$0001                     A:0013 X:003E Y:00BF S:1FF3 D:0000 DB:80 P:NvmxdIzc V:28  H:113 Cycle:45053662
+80901D  lda #$0000                     A:0013 X:0001 Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIzc V:28  H:117 Cycle:45053665
+809020  jsr $9059 [obj_screen]         A:0000 X:0001 Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIZc V:28  H:122 Cycle:45053668
+809059  sta $04 [p_4] = $0188          A:0000 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIZc V:28  H:132 Cycle:45053674
+80905B  txa                            A:0000 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIZc V:28  H:149 Cycle:45053678
+80905C  ora $0482 [w_obj_screenupdates] = $0000 A:0001 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:152 Cycle:45053680
+80905F  sta $0482 [w_obj_screenupdates] = $0000 A:0001 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:160 Cycle:45053685
+809062  lda $00 [p_0] = $001A          A:0001 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:169 Cycle:45053690
+809064  and #$001f                     A:001A X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:176 Cycle:45053694
+809067  sta $00 [p_0] = $001A          A:001A X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:180 Cycle:45053697
+809069  lda $02 [p_2] = $0013          A:001A X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:187 Cycle:45053701
+80906B  and #$001f                     A:0013 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:194 Cycle:45053705
+80906E  sta $02 [p_2] = $0013          A:0013 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:199 Cycle:45053708
+809070  sep #$20                       A:0013 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:206 Cycle:45053712
+809072  lda $02 [p_2] = $13            A:0013 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvMxdIzc V:28  H:210 Cycle:45053715
+809074  sta $4202 [WRMPYA] = $8D       A:0013 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvMxdIzc V:28  H:215 Cycle:45053718
+809077  lda #$20                       A:0013 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvMxdIzc V:28  H:221 Cycle:45053722
+809079  sta $4203 [WRMPYB] = $8D       A:0020 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvMxdIzc V:28  H:224 Cycle:45053724
+80907C  rep #$20                       A:0020 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvMxdIzc V:28  H:230 Cycle:45053728
+80907E  nop                            A:0020 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:235 Cycle:45053731
+80907F  nop                            A:0020 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:238 Cycle:45053733
+809080  nop                            A:0020 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:241 Cycle:45053735
+809081  nop                            A:0020 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:244 Cycle:45053737
+809082  nop                            A:0020 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:247 Cycle:45053739
+809083  nop                            A:0020 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:250 Cycle:45053741
+809084  nop                            A:0020 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:253 Cycle:45053743
+809085  nop                            A:0020 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:256 Cycle:45053745
+809086  lda $4216 [RDMPYL] = $0000     A:0020 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:259 Cycle:45053747
+809089  asl                            A:0260 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:266 Cycle:45053752
+80908A  clc                            A:04C0 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:269 Cycle:45053754
+80908B  adc $00 [p_0] = $001A          A:04C0 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:272 Cycle:45053756
+80908D  adc $00 [p_0] = $001A          A:04DA X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:279 Cycle:45053760
+80908F  clc                            A:04F4 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:286 Cycle:45053764
+809090  adc $04 [p_4] = $0000          A:04F4 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:289 Cycle:45053766
+809092  rts                            A:04F4 X:0001 Y:00BF S:1FF1 D:0000 DB:80 P:nvmxdIzc V:28  H:296 Cycle:45053770
+809023  bra obj_draw_write             A:04F4 X:0001 Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIzc V:28  H:306 Cycle:45053776
+80904B  tax                            A:04F4 X:0001 Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIzc V:28  H:311 Cycle:45053779
+80904C  ldy $0486 [w_obj_index] = $003E A:04F4 X:04F4 Y:00BF S:1FF3 D:0000 DB:80 P:nvmxdIzc V:28  H:314 Cycle:45053781
+80904F  lda $0302,y [$800340] = $0234  A:04F4 X:04F4 Y:003E S:1FF3 D:0000 DB:80 P:nvmxdIzc V:28  H:322 Cycle:45053786
+809052  sta l_level_screen0,x [$7F04F4] = $0410 A:0234 X:04F4 Y:003E S:1FF3 D:0000 DB:80 P:nvmxdIzc V:28  H:331 Cycle:45053792
+809056  plx                            A:0234 X:04F4 Y:003E S:1FF3 D:0000 DB:80 P:nvmxdIzc V:29  H:1   Cycle:45053798
+809057  ply                            A:0234 X:003E Y:003E S:1FF5 D:0000 DB:80 P:nvmxdIzc V:29  H:10  Cycle:45053803

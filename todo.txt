@@ -1,0 +1,174 @@
+
+
+
+objects to write:
+    change scroll bounds when touched
+        will probably need to add this to room data in ram
+    change physical bounds when touched
+    ^(make room smaller or larger)
+
+player->fae collisions are visually off because object center is used
+    probably draw off by player_xsize/2 and player_ysize/2?
+    same for all fae spritemaps
+
+object collision:
+    maybe can use a collision type with argument as an index, say:
+    
+    player_collision_
+        ..table: {
+            dw player_collision_air,            ;0
+               player_collision_solid,          ;1
+               player_collision_directionalwall ;2
+               player_collision_object          ;3
+               
+               
+               and then, objects become associated with an index by writing a subsystem for this
+               when an object is created find a slot for it
+               up to 15 unique collision subtypes for objects
+               
+                ;collision format is one byte:
+                ;%aaaatttt
+                ;a = argument; data to pass to tile collision handler
+                ;t = tile collision type, used to index jump table
+                
+                and so then
+                a = object's assigned collision subtype
+                t = %0011 (3)
+                
+                need to modify player_locateontile so that it takes argument for destination
+        }
+        
+        started this but not sure it's worth finishing, pieces at:
+            obj_writecollision
+            player_collision (index 3)
+            w_obj_collisionprops
+            w_obj_collisionreaction
+    
+
+BUG
+    color cycling runs at half speed during scrolling text
+    lag?
+    no it was deliberateky slowed down by waiting for nmi again
+
+need some kind of system (like the above) to reduce the size and copypasteness of init routines:
+    add to scenedef:
+        layer blending (jump table index) DONE
+        hdma object spawning (pointer to list of objects) DOEN
+        color cycling spawning (pointer to list of objects) DONE
+        layer 2 backgrounds (pointer to tilemap) DONE
+        
+        
+layer 2 background:
+    add one byte for defining layer 2 screen configuration for writing to $2108
+    this would preclude using layer 3 at all unless you rearrange vramn to find 
+    somewhere else to put the extra layre 2 screens
+
+the collision system is in a dire state
+    nothing works
+    well, not true. tile lookup in collision map works
+    but that's it
+
+color cycling counter is off by one
+    i.e., counter of 0 means it writes colors for one frame
+    maybe this is fine cuz why would i ever ant actual 0?
+
+write more shot objects
+    player shield?
+        after being hit, spawn playerhurt glow object and a player shield for the duration of iframes
+            idk maybe
+
+color cycling:
+    make the instruction lists able to be put in the hirom part of the bank
+    anywhere the handling routines do $0000,y just make it long
+    lda bank(glowdata)<<16,y
+    or
+    change data bank to the hirom bank, and the corresponding ram access needs to be long
+
+we need "newly pressed buttons"
+    title screen dpad presses are awful because they use an nmi counter bitmask
+    instead of newly pressed buttons
+
+speech text box makes it very hard to see the player
+    we have player_spritemap_circle made, and with
+    make sure it's on a palette not affected by
+    color math. still though, kinda doesn't work
+    this problem needs some kind of solution
+
+irq should be disabled anywhere where cpu multiply is used
+    like in player_locateontile
+    and object_plot
+
+
+RLE compression for tilemaps
+    wrote decompression first. need to write python for compression
+    
+
+
+
+
+
+
+
+====================================== SOLVED PROBLEMS ==================================
+delete pillar_room from /data/inc/c2.asm
+to make space for bank $82 to become another code bank
+    gonna now be:
+    80: main, gampleay, player, interrupts, etc
+    81: fae
+    82: color cycling, hdma only (keep this way due to huge tables, lists space?)
+
+
+
+hdma handler
+    hdma object system with preinstrucions, etc
+
+layer blending handler to call from main or top level states
+
+color cycling system
+    color cycling objects
+    half written, doesn't work. crashes. addressing mode problem in instruction lists, oops
+    
+
+
+clean up boot code
+    ;clear all $4200-4300 registers sanely
+    keep nmi off until right before first call to main
+    or maybe keep it off until after state 0 runs? dunno
+
+
+write a system that does the following:
+    displays a message at the bottom of the screen on layer 3
+    draws a spritemap for a character portrait in the bottom left
+        corner of the screen
+
+
+hud
+    use sprites
+    all good, uses a buffer w/ ascii
+    
+    
+there's a bug in main gameplay during fadeout where sprites aren't drawn in the right places
+    but only some of them
+    i think it's related to the hud
+    the last three sprites on the hud turn into large sprites and take the place of
+        the next three sprites (fae)
+    this was fixed by adding w_gameplayfadeoutstate
+
+
+state "loadscene" and routine "load_scene" need to be renamed
+state "loadscene" might actually just be used for loading the intro scene now, oops
+;so maybe the change is easy
+    call it "load intro scene"
+    change label, and associated define for state
+;;;i thin kthe above is now solved
+yeah it is, what do u mean u think
+
+
+
+write irq for blanking main screen layers (1 and 2, maybe sprites) for under the hud?
+    start on line 16
+    end on line 33
+    ;probably h-dot $a0 or so for both
+    ;this works now but doesn't work during fade-in, might be annoying to debrug
+        ;changed to use color math instead of screen brightness. all done now
+    

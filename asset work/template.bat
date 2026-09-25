@@ -1,0 +1,3 @@
+C:\Users\keenan\Desktop\superfamiconv.exe -i "C:\Users\keenan\Desktop\robot_past\robot_past\asset work\room1\room1_arranged.png" -p "C:\Users\keenan\Desktop\robot_past\robot_past\asset work\room1\room1_arranged.pal" -m "C:\Users\keenan\Desktop\robot_past\robot_past\asset work\room1\room1_arranged.map" -t "C:\Users\keenan\Desktop\robot_past\robot_past\asset work\room1\room1_arranged.gfx" --palette-base-offset 1 --color-zero 000000
+
+pause
