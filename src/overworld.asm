@@ -254,7 +254,7 @@ overworld: {
                 dw overworld_node_6, overworld_node_path_7  ;up
                 dw overworld_node_7, overworld_node_path_8  ;down
                 dw $0000, $0000                             ;left
-                dw $0000, $0000                             ;right
+                dw overworld_node_4, overworld_node_path_8  ;right
                 
             ...6:
                 dw $0000, $0000                             ;up

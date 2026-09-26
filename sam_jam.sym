@@ -1419,7 +1419,7 @@ CB:AEA0 titledata_spritepal
 0012 ea166785 c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/shot/common.asm
 0013 c1a243dc c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/shot/bubble.asm
 0014 17e40d01 c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/shot/shield.asm
-0015 80591fc1 c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/overworld.asm
+0015 3f519b0b c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/overworld.asm
 0016 af4870b0 c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/fae/fae.asm
 0017 2c639a64 c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/fae/common.asm
 0018 1535cbca c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/fae/test.asm
@@ -1459,7 +1459,7 @@ CB:AEA0 titledata_spritepal
 003a 433cc0ed c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/sam_jam.asm
 
 [rom checksum]
-fad6e620
+c999fa49
 
 [addr-to-line mapping]
 80:8000 0000:00000003
