@@ -171,6 +171,13 @@
 
 !fae_list_entry_length      =   datasize(faelist_definitionstart)
 
+;================================ overworld
+
+!overworld_exit_up          =   $0000
+!overworld_exit_down        =   $0001
+!overworld_exit_left        =   $0002
+!overworld_exit_right       =   $0003
+
 ;================================ speech text objects
 
 !speech_icon_anchor_x       =   $10

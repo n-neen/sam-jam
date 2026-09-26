@@ -409,11 +409,11 @@ w: {
             ...state        :   skip 2
         }
         
-        ..sam: {
-            ...x:           :   skip 2  ;onscreen position for sprite drawing
-            ...y:           :   skip 2
-            ...anim_counter :   skip 2
-        }
+        ;..sam: {
+        ;    ...x:           :   skip 2  ;onscreen position for sprite drawing
+        ;    ...y:           :   skip 2 ;just use fae ram for what u cam
+        ;    ...anim_counter :   skip 2
+        ;}
     }
     
     .vram: {
