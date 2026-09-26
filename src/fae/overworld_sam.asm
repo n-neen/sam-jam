@@ -41,7 +41,7 @@
         ;animate
         ;act on input
         
-        print pc
+        ;print pc
         
         ;jsr fae_oversam_debuginput
         
@@ -160,14 +160,15 @@
         beq ...notvalid
         
         ;check if level beaten also eventually
-        tax
         
-        jsl overworld_loadnode
+        tax                         ;x = node ptr
+        
+        jsl overworld_loadnode      ;load noad
         
         lda #$0010
         sta w_fae_var2,y            ;counter
         
-        lda #$0002
+        lda #!oversam_state_waiting
         sta w_fae_var1,y            ;state = wait
         
         ...notvalid:
@@ -186,7 +187,7 @@
         rts
         
         ...done:
-        lda #$0000
+        lda #!oversam_state_idle
         sta w_fae_var1,x
         
         rts

@@ -178,6 +178,10 @@
 !overworld_exit_left        =   $0002
 !overworld_exit_right       =   $0003
 
+!oversam_state_idle         =   $0000
+!oversam_state_moving       =   $0001
+!oversam_state_waiting      =   $0002
+
 ;================================ speech text objects
 
 !speech_icon_anchor_x       =   $10
