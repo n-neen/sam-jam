@@ -17,3 +17,5 @@ overworld_sprites: {
     .gfx:   incbin "./data/gfx/sprites/overworld_sprites.gfx"
     .dummylabel
 }
+
+incsrc "./data/inc/overworld_paths.asm"

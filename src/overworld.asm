@@ -224,80 +224,55 @@ overworld: {
                 dw $0000, $0000                             ;up
                 dw $0000, $0000                             ;down
                 dw $0000, $0000                             ;left
-                dw overworld_node_1, overworld_node_path_0  ;right
+                dw overworld_node_1, overworld_path_0       ;right
                 
             ...1:
                 dw $0000, $0000                             ;up
-                dw overworld_node_0, overworld_node_path_1  ;down
-                dw overworld_node_7, overworld_node_path_9  ;left
-                dw overworld_node_2, overworld_node_path_12 ;right
+                dw overworld_node_0, overworld_path_1       ;down
+                dw overworld_node_7, overworld_node_path_0  ;left
+                dw overworld_node_2, overworld_path_2       ;right
                 
             ...2:
                 dw $0000, $0000                             ;up
                 dw $0000, $0000                             ;down
-                dw overworld_node_1, overworld_node_path_2  ;left
-                dw overworld_node_3, overworld_node_path_2  ;right
+                dw overworld_node_1, overworld_path_3       ;left
+                dw overworld_node_3, overworld_path_4       ;right
                 
             ...3:
                 dw $0000, $0000                             ;up
                 dw $0000, $0000                             ;down
-                dw overworld_node_2, overworld_node_path_3  ;left
-                dw overworld_node_4, overworld_node_path_4  ;right
+                dw overworld_node_2, overworld_path_5       ;left
+                dw overworld_node_4, overworld_path_6       ;right
                 
             ...4:
                 dw $0000, $0000                             ;up
-                dw overworld_node_3, overworld_node_path_5  ;down
-                dw overworld_node_5, overworld_node_path_6  ;left
+                dw overworld_node_3, overworld_path_7       ;down
+                dw overworld_node_5, overworld_node_path_0  ;left
                 dw $0000, $0000                             ;right
                 
             ...5:
-                dw overworld_node_6, overworld_node_path_7  ;up
-                dw overworld_node_7, overworld_node_path_8  ;down
+                dw overworld_node_6, overworld_node_path_0  ;up
+                dw overworld_node_7, overworld_node_path_0  ;down
                 dw $0000, $0000                             ;left
-                dw overworld_node_4, overworld_node_path_8  ;right
+                dw overworld_node_4, overworld_node_path_0  ;right
                 
             ...6:
                 dw $0000, $0000                             ;up
-                dw overworld_node_5, overworld_node_path_9  ;down
+                dw overworld_node_5, overworld_node_path_0  ;down
                 dw $0000, $0000                             ;left
                 dw $0000, $0000                             ;right
                 
             ...7:
                 dw $0000, $0000                             ;up
-                dw overworld_node_1, overworld_node_path_10 ;down
+                dw overworld_node_1, overworld_node_path_0  ;down
                 dw $0000, $0000                             ;left
-                dw overworld_node_5, overworld_node_path_11 ;right
+                dw overworld_node_5, overworld_node_path_0  ;right
         }
         
         ..path: {
             ...0: {
                 db 00, 00, 00, 00, $ff  ;input playback? ext file?
             }
-            
-            ...1: {
-                db 00, 00, 00, 00, $ff  ;input playback?
-            }
-            
-            ...2: {
-                db 00, 00, 00, 00, $ff  ;input playback?
-            }
-            
-            ...3: {
-                db 00, 00, 00, 00, $ff  ;input playback?
-            }
-            
-            ...4: {
-                db 00, 00, 00, 00, $ff  ;input playback?
-            }
-            
-            ...5:
-            ...6:
-            ...7:
-            ...8:
-            ...9:
-            ...10:
-            ...11:
-            ...12:
         }
     }
     

@@ -43,7 +43,25 @@
         
         ;print pc
         
-        ;jsr fae_oversam_debuginput
+        ;bra ++      ;debrug removal
+        
+        lda w_controller
+        bit #!controller_a
+        beq +
+        {
+            jsr fae_oversam_debuginput
+            jsr fae_oversam_debugrecordpos
+        }
+        +
+        
+        lda w_controller
+        bit #!controller_b
+        beq +
+        {
+            stz w_fae_var2,x
+        }
+        +
+        ++
         
         lda w_fae_var1,x                ;state
         asl
@@ -125,20 +143,59 @@
         }
         +
         
-        jsr fae_oversam_locate
-        
         rts
     }
     
     
     ..moving: {
-        ;
+        ;x = fae index
+        phb
+        phy
+        
+        lda w_fae_var2,x                ;counter
+        inc
+        sta w_fae_var2,x
+        asl
+        tay                             ;index into path data
+        
+        lda w_overworld_path_ptr
+        sta p_0
+        
+        pea.w bank(overworld_path)<<8
+        plb
+        plb
+        
+        lda (p_0),y
+        cmp #$ffff
+        beq ...done
+        
+        sep #$20
+        {
+            sta.l w_fae_x,x
+            xba
+            sta.l w_fae_y,x
+        }
+        rep #$20
+        
+        ...return:
+        
+        jsr fae_oversam_locate
+        
+        ply
+        plb
         rts
+        
+        ...done:
+        lda.l #!oversam_state_idle
+        sta.l w_fae_var1,x            ;state = idle
+        
+        bra ...return
     }
     
     
     ..checkdir: {
         ;A = direction to check
+        phy
         phx
         phb
         
@@ -159,21 +216,30 @@
         lda $0000,x
         beq ...notvalid
         
+        phy                         ;fae index
+        
+        tay
+        
         ;check if level beaten also eventually
         
-        tax                         ;x = node ptr
+        lda $0002,x
+        sta w_overworld_path_ptr
+        
+        tyx                         ;x = node ptr
         
         jsl overworld_loadnode      ;load noad
         
-        lda #$0010
-        sta w_fae_var2,y            ;counter
+        ply                         ;fae index
+        lda #$0000
+        sta w_fae_var2,y            ;counter = 0
         
-        lda #!oversam_state_waiting
-        sta w_fae_var1,y            ;state = wait
+        lda #!oversam_state_moving
+        sta w_fae_var1,y            ;state = moving
         
         ...notvalid:
         plb
         plx
+        ply
         rts
     }
     
@@ -187,6 +253,9 @@
         rts
         
         ...done:
+        lda #$0000
+        sta w_fae_var2,x
+        
         lda #!oversam_state_idle
         sta w_fae_var1,x
         
@@ -196,6 +265,7 @@
     
     ..locate: {
         ;locate on node position
+        ;print pc
         
         lda w_overworld_node_x
         sta w_fae_x,x
@@ -208,13 +278,49 @@
     
     
     ..init: {
+        phx
+        
         lda #overworld_node_0
         sta w_overworld_node_ptr
         tax
         
         jsl overworld_loadnode
+        
+        plx
+        
         jsr fae_oversam_locate
         
+        rts
+    }
+    
+    ..debugrecordpos: {
+        phb
+        phy
+        
+        
+        lda w_fae_var2,x
+        inc
+        inc
+        sta w_fae_var2,x
+        
+        tay
+        
+        pea $7f00
+        plb
+        plb
+        
+        sep #$20
+        {
+            lda.l w_fae_x,x
+            sta $0000,y
+        
+            lda.l w_fae_y,x
+            sta $0001,y
+        }
+        rep #$20
+        
+        ply
+        plb
         rts
     }
     
@@ -283,6 +389,7 @@
         }
         +
         
+        ;jsr fae_oversam_locate
         
         rts
     }
