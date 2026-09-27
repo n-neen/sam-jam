@@ -45,23 +45,23 @@
         
         ;bra ++      ;debrug removal
         
-        lda w_controller
-        bit #!controller_a
-        beq +
-        {
-            jsr fae_oversam_debuginput
-            jsr fae_oversam_debugrecordpos
-        }
-        +
+        ;lda w_controller
+        ;bit #!controller_a
+        ;beq +
+        ;{
+        ;    jsr fae_oversam_debuginput
+        ;    jsr fae_oversam_debugrecordpos
+        ;}
+        ;+
         
-        lda w_controller
-        bit #!controller_b
-        beq +
-        {
-            stz w_fae_var2,x
-        }
-        +
-        ++
+        ;lda w_controller
+        ;bit #!controller_b
+        ;beq +
+        ;{
+        ;    stz w_fae_var2,x
+        ;}
+        ;+
+        ;++
         
         lda w_fae_var1,x                ;state
         asl
@@ -142,6 +142,31 @@
             pla
         }
         +
+        
+        bit #!controller_a
+        beq +
+        {
+            pha
+            phx
+            
+            ldx w_overworld_node_scene_target
+            jsl scenetransition_long
+            
+            lda w_scene_mode
+            sta w_programstate
+            
+            jsl fadeout_long
+            ;screen is now off
+            
+            jsl load_playerpal
+            jsl load_playergfx
+            
+            plx
+            pla
+        }
+        +
+        
+        
         
         rts
     }
