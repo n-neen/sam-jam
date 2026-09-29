@@ -8,16 +8,12 @@ cgblastcolors:
 black:
     dw $0000
 
-bloodlotus: {
-    .pal:   incbin "./data/pal/blood.pal"
-    .gfx:   incbin "./data/gfx/blood.gfx"
-    .map:   incbin "./data/map/blood.map"
-    
-    
-    .props:
-        ;gameplay aspects of this scene
-        dw $ffff
-}
+
+intro1:
+    .gfx:
+    .map:
+    .pal:
+    .dummylabel
 
 ;===========================================================================================
 ;========================================= BG3 =============================================

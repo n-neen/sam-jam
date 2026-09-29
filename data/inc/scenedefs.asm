@@ -27,75 +27,19 @@ scenedef: {
 
     
 ;====================================== intro scenes =======================================
-    .meetsisters:       ;%scenedefentry(meetsisters)
-        dl meetsisters                      ;long pointer to the scene data ;$0
-        dw meetsisters_pal                  ;inbank pointer to palette,     ;$3
-        dw meetsisters_gfx                  ;graphics,                      ;$5
-        dw meetsisters_map                  ;tilemap                        ;$7
-        dw datasize(meetsisters_gfx)        ;graphics size                  ;$9
-        dw datasize(meetsisters_map)        ;tilemap size                   ;$b
-        dw properties_meetsisters           ;gameplay properties            ;$d; in scenedef
+    .intro1:
+        dl intro1                           ;long pointer to the scene data ;$0
+        dw intro1_pal                       ;inbank pointer to palette,     ;$3
+        dw intro1_gfx                       ;graphics,                      ;$5
+        dw intro1_map                       ;tilemap                        ;$7
+        dw datasize(intro1_gfx)             ;graphics size                  ;$9
+        dw datasize(intro1_map)             ;tilemap size                   ;$b
+        dw properties_intro1                ;gameplay properties            ;$d; in scenedef
         dw $0000                            ;list of hdma objects to spawn  ;$f
-        dw glowlist_meetsisters             ;list of glow objects to spawn  ;$11
+        dw glowlist_intro1                  ;list of glow objects to spawn  ;$11
         dw $0000                            ;background data list           ;$13
         db !layer_blend_intro               ;one byte, index for handler    ;$15
-    
-    
-    .bloodlotus:        ;%scenedefentry(bloodlotus)
-        dl bloodlotus                       ;long pointer to the scene data ;$0
-        dw bloodlotus_pal                   ;inbank pointer to palette,     ;$3
-        dw bloodlotus_gfx                   ;graphics,                      ;$5
-        dw bloodlotus_map                   ;tilemap                        ;$7
-        dw datasize(bloodlotus_gfx)         ;graphics size                  ;$9
-        dw datasize(bloodlotus_map)         ;tilemap size                   ;$b
-        dw properties_bloodlotus            ;gameplay properties            ;$d; in scenedef
-        dw $0000                            ;list of hdma objects to spawn  ;$f
-        dw $0000                            ;list of glow objects to spawn  ;$11
-        dw $0000                            ;background data list           ;$13
-        db !layer_blend_intro               ;one byte, index for handler    ;$15
-    
-    
-    .flamecircle:       ;%scenedefentry(flamecircle)
-        dl flamecircle                      ;long pointer to the scene data ;$0
-        dw flamecircle_pal                  ;inbank pointer to palette,     ;$3
-        dw flamecircle_gfx                  ;graphics,                      ;$5
-        dw flamecircle_map                  ;tilemap                        ;$7
-        dw datasize(flamecircle_gfx)        ;graphics size                  ;$9
-        dw datasize(flamecircle_map)        ;tilemap size                   ;$b
-        dw properties_flamecircle           ;gameplay properties            ;$d; in scenedef
-        dw $0000                            ;list of hdma objects to spawn  ;$f
-        dw $0000                            ;list of glow objects to spawn  ;$11
-        dw $0000                            ;background data list           ;$13
-        db !layer_blend_intro               ;one byte, index for handler    ;$15
-    
 
-    .city:              ;%scenedefentry(city)
-        dl city                             ;long pointer to the scene data ;$0
-        dw city_pal                         ;inbank pointer to palette,     ;$3
-        dw city_gfx                         ;graphics,                      ;$5
-        dw city_map                         ;tilemap                        ;$7
-        dw datasize(city_gfx)               ;graphics size                  ;$9
-        dw datasize(city_map)               ;tilemap size                   ;$b
-        dw properties_city                  ;gameplay properties            ;$d; in scenedef
-        dw $0000                            ;list of hdma objects to spawn  ;$f
-        dw $0000                            ;list of glow objects to spawn  ;$11
-        dw $0000                            ;background data list           ;$13
-        db !layer_blend_intro               ;one byte, index for handler    ;$15
-    
-;================================  nongameplay scenes ======================================
-    .entrance:          ;%scenedefentry(entrance)
-        dl entrance                         ;long pointer to the scene data ;$0
-        dw entrance_pal                     ;inbank pointer to palette,     ;$3
-        dw entrance_gfx                     ;graphics,                      ;$5
-        dw entrance_map                     ;tilemap                        ;$7
-        dw datasize(entrance_gfx)           ;graphics size                  ;$9
-        dw datasize(entrance_map)           ;tilemap size                   ;$b
-        dw properties_entrance              ;gameplay properties            ;$d; in scenedef
-        dw $0000                            ;list of hdma objects to spawn  ;$f
-        dw $0000                            ;list of glow objects to spawn  ;$11
-        dw $0000                            ;background data list           ;$13
-        db !layer_blend_default_nosprites   ;one byte, index for handler    ;$15
-    
 ;=================================== gameplay rooms ========================================
     .overworld:
         dl overworld_data                   ;long pointer to the scene data ;$0
@@ -139,44 +83,12 @@ properties: {
     
 ; ============================ dialogue scenes (nongameplay) ===============================
     
-    .meetsisters: {                 ;intro 1
+    .intro1: {                 ;intro 1
         dw !state_loadintroscene    ;program state to enter
         dw str_intro1               ;text string pointer
         db $08                      ;starting line for text
         dw $0000                    ;init routine
         dw str_credits              ;scrolling text commands (ptr to strings.asm)
-    }
-    
-    .bloodlotus: {                  ;intro 2
-        dw !state_loadintroscene
-        dw str_intro2
-        db $16
-        dw $0000                    ;init routine
-        dw str_scrollingintro       ;scrolling text commands
-    }
-    
-    .flamecircle: {                 ;intro 3
-        dw !state_loadintroscene
-        dw str_intro3
-        db $18
-        dw $0000                    ;init routine
-        dw $0000                    ;scrolling text commands
-    }
-    
-    .city: {                        ;intro 4
-        dw !state_loadintroscene    ;program state to enter
-        dw str_intro4               ;text string pointer
-        db $04                      ;starting line for text
-        dw $0000                    ;init routine
-        dw $0000                    ;scrolling text commands
-    }
-    
-    .entrance: {
-        dw !state_loadnongame
-        dw str_entrance
-        db $0a                      ;starting line
-        dw $0000                    ;init routine
-        dw str_scrolltest           ;scrolling text commands
     }
 
 ; ===================================== gameplay ===========================================
@@ -252,7 +164,7 @@ hdmalist: {
 ;not implemented yet
 
 glowlist: {
-    .meetsisters: {
+    .intro1: {
         dw glow_meetsisters
         dw $ffff
     }

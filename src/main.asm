@@ -786,7 +786,7 @@ setupintro: {
     lda #!camera_speed_default
     sta w_scroll_cameraspeed
     
-    ldx.w #scenedef_meetsisters             ;initial intro scene pointer
+    ldx.w #scenedef_intro1             ;initial intro scene pointer
     jsr scenetransition
     
     
@@ -887,11 +887,8 @@ introhandler: {
     
     
     .testtable: {
-        dw scenedef_meetsisters,        ;0
-           scenedef_bloodlotus,         ;1
-           scenedef_flamecircle,        ;2
-           scenedef_city,               ;3
-           scenedef_overworld           ;4
+        dw scenedef_intro1,             ;0
+           scenedef_overworld           ;1
     }
 }
 
@@ -1032,8 +1029,9 @@ setupresumedgame: {
     
     ;eventaully get the following from save ram
     
-    lda.l s_roomptr
-    tax
+    ;lda.l s_roomptr
+    ;tax
+    ldx #scenedef_overworld
     jsl scenetransition_long
     
     lda #!player_hp_default

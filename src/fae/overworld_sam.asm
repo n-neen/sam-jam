@@ -156,7 +156,7 @@
             sta w_programstate
             
             jsl fadeout_long
-            ;screen is now off
+            ;screen is now off, load player graphics and palette
             
             jsl load_playerpal
             jsl load_playergfx
@@ -174,6 +174,8 @@
     
     ..moving: {
         ;x = fae index
+        ;print pc
+        
         phb
         phy
         
@@ -204,7 +206,7 @@
         
         ...return:
         
-        jsr fae_oversam_locate
+        ;jsr fae_oversam_locate
         
         ply
         plb

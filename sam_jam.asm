@@ -1,4 +1,4 @@
-hirom
+lorom
 
 optimize dp always
 optimize address mirrors
@@ -88,82 +88,63 @@ print "82 end: ", pc, " color cycling, hdma"
     
 ;================================= data banks =======================================
     
-org $c00000                             ;bank for scenes, dialog and room data
+org $838000                             ;bank for scenes, dialog and room data
     incsrc "./data/inc/scenedefs.asm"
     incsrc "./data/inc/objlists.asm"
     incsrc "./data/inc/faelists.asm"
     incsrc "./data/inc/strings.asm"
     incsrc "./data/inc/scrolldata.asm"
-    print "c0 end: ", pc, " scenedef, obj/fae lists, strings"
+    print "83 end: ", pc, " scenedef, obj/fae lists, strings"
     
-org $c10000
-    incsrc "./data/inc/c1.asm"
-    print "c1 end: ", pc, " scene data, bg3 font"
+org $848000
+    incsrc "./data/inc/84.asm"
+    print "84 end: ", pc, " bg3 font"
     
-org $c20000
-    incsrc "./data/inc/c2.asm"
-    print "c2 end: ", pc, " scene/room data"
+org $858000
+    incsrc "./data/inc/85.asm"
+    print "85 end: ", pc, " game over data"
     
-org $c30000
-    incsrc "./data/inc/c3.asm"
-    print "c3 end: ", pc, " scene data, sprite gfx, room data"
+org $868000
+    incsrc "./data/inc/86.asm"
+    print "86 end: ", pc, " sprite gfx"
 
-org $c40000
-    incsrc "./data/inc/c4.asm"
-    print "c4 end: ", pc, " overworld gfx, tilemap, palette"
+org $878000
+    incsrc "./data/inc/87.asm"
+    print "87 end: ", pc, " overworld gfx, tilemap, palette, path data"
     
-org $c50000
-    incsrc "./data/inc/c5.asm"
-    print "c5 end: ", pc, " scene data, bg2 background tilemap"
+org $898000
+    incsrc "./data/inc/89.asm"
+    print "89 end: ", pc, " title screen 1"
     
-org $c60000
-    incsrc "./data/inc/c6.asm"
-    print "c6 end: ", pc, " ice cave room data"
+org $8a8000
+    incsrc "./data/inc/8a.asm"
+    print "8a end: ", pc, " title screen 2"
     
-org $c70000
-    incsrc "./data/inc/c7.asm"
-    print "c7 end: ", pc
+org $8b8000
+    incsrc "./data/inc/8b.asm"
+    print "8b end: ", pc, " room1, its bg2"
     
-org $c80000
+org $8c8000
     incsrc "./data/inc/collision_maps.asm"
     print "c8 end: ", pc, " collision maps"
     
-org $c90000
-    incsrc "./data/inc/c9.asm"
-    print "c9 end: ", pc, " game over tilemaps, graphics, palettes"
+org $8d8000
+    incsrc "./data/inc/8d.asm"
+    print "8d end: ", pc, " "
     
-org $ca0000
-    incsrc "./data/inc/ca.asm"
-    print "ca end: ", pc
+org $8e8000
+    incsrc "./data/inc/8e.asm"
+    print "8e end: ", pc
     
-org $cb0000
-    incsrc "./data/inc/cb.asm"
-    print "cb end: ", pc, " title screen tilemaps, graphics, palettes"
-    
-org $cc0000
-    incsrc "./data/inc/cc.asm"
-    print "cc end: ", pc
-    
-org $cd0000
-    ;
-    print "cd end: ", pc
-    
-org $ce0000
-    ;
-    print "ce end: ", pc
-    
-org $cf0000
-    ;incsrc "./sound/example_project_test/example-project.inc"
-    ;incsrc "./sound/example_project_test/example-project.asm"
-    ;incbin "./sound/example_project_test/example-project.bin"
-    print "cf end: ", pc
-    
+org $8f8000
+    incsrc "./data/inc/8f.asm"
+    print "8f end: ", pc, " "
     
     ;pad the rom
     ;checksum will not calculate correctly if we don't have a whole bank
     ;at the end of the rom
     
-org $cfffff
+org $8fffff
     db $00
 
 ;===========================================================================================
@@ -173,7 +154,7 @@ org $cfffff
 ;===========================================================================================
 
 
-org $c0ffc0                             ;game header
+org $80ffc0                             ;game header
     db "robot past           "          ;cartridge name
     db $31                              ;fastrom, hirom
     db $02                              ;rom + ram + sram
