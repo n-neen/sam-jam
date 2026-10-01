@@ -112,6 +112,10 @@ org $878000
     incsrc "./data/inc/87.asm"
     print "87 end: ", pc, " overworld gfx, tilemap, palette, path data"
     
+org $888000
+    incsrc "./data/inc/88.asm"
+    print "88 end: ", pc, " "
+
 org $898000
     incsrc "./data/inc/89.asm"
     print "89 end: ", pc, " title screen 1"
@@ -126,7 +130,7 @@ org $8b8000
     
 org $8c8000
     incsrc "./data/inc/collision_maps.asm"
-    print "c8 end: ", pc, " collision maps"
+    print "8c end: ", pc, " collision maps"
     
 org $8d8000
     incsrc "./data/inc/8d.asm"

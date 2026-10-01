@@ -143,7 +143,7 @@
         }
         +
         
-        bit #!controller_a
+        bit #!controller_a|!controller_st
         beq +
         {
             pha
@@ -165,8 +165,6 @@
             pla
         }
         +
-        
-        
         
         rts
     }
