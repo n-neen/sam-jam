@@ -1,12 +1,13 @@
 ;still has label from previous bank
 
-    .bg3gfx:        incbin "./data/gfx/title_bg3.gfx"
     
-    .pal:           incbin "./data/pal/title.pal"
+    title_spritegfx:     incbin "./data/gfx/title_sprites.gfx"
+    title_spritepal:     incbin "./data/pal/title_sprites.pal"
     
-    .spritegfx:     incbin "./data/gfx/title_sprites.gfx"
-    .spritepal:     incbin "./data/pal/title_sprites.pal"
+    title_optionsbg3map: incbin "./data/map/optionsmenu_bg3.map"
     
-    .optionsbg3map: incbin "./data/map/optionsmenu_bg3.map"
+    title_bg2map:       incbin "./data/map/title_bg2.map"
     
-    .dummylabel
+        .dummylabel:
+        ; :]
+        

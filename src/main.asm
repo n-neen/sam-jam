@@ -303,11 +303,11 @@ layerblending: {
         sta w_colormathlayers
         ;sta $2131
         
-        lda #%00010101      ;main screen layers
+        lda #%00010111      ;main screen layers
         sta w_mainscreenlayers
         ;sta $212c
         
-        lda #%00000010      ;subscreen layers
+        lda #%00000000      ;subscreen layers
         sta w_subscreenlayers
         ;sta $212d
         
@@ -327,112 +327,142 @@ setuptitle: {
     jsr screenoff
     jsr disablenmi
     
+    sep #$20
+    {
+        lda #%00001001
+        sta $2105
+    }
+    rep #$20
+    
     ;============================== load bg1 tilemap =============================
     ;tilemap to buffer
-    lda #bank(titledata_bg1map)
+    lda #bank(title_bg1map)
     sta p_2
         
-    lda #titledata_bg1map               ;tilemap pointer
+    lda #title_bg1map                   ;tilemap pointer
     sta p_0
         
-    lda #datasize(titledata_bg1map)     ;tilemap size
+    lda #datasize(title_bg1map)         ;tilemap size
     jsl load_romtolevelbuffer           ;copy tilemap to level buffer
         
     ;buffer to vram
-    lda #datasize(titledata_bg1map)     ;tilemap size
+    lda #datasize(title_bg1map)         ;tilemap size
     ldx #!bg1tilemap                    ;destination in vram
     jsl load_levelbuffertovram          ;dma tilemap to vram
     
     ;============================== load bg1 graphics ============================
     ;graphics to buffer
-    lda #bank(titledata_bg1gfx)
+    lda #bank(title_bg1gfx)
     sta p_2
         
-    lda #titledata_bg1gfx
+    lda #title_bg1gfx
     sta p_0
         
-    lda #datasize(titledata_bg1gfx)
+    lda #datasize(title_bg1gfx)
     jsl load_romtobuffer
     
     ;load title bg1 graphics to vram
-    lda #datasize(titledata_bg1gfx)     ;gfx size
+    lda #datasize(title_bg1gfx)         ;gfx size
     ldx #!bg1tiles                      ;destination in vram
+    jsl load_buffertovram               ;dma gfx to vram
+    
+    ;============================== load bg2 graphics ============================
+    ;graphics to buffer
+    lda #bank(title_bg2gfx)
+    sta p_2
+        
+    lda #title_bg2gfx
+    sta p_0
+        
+    lda #datasize(title_bg2gfx)
+    jsl load_romtobuffer
+    
+    ;load title bg1 graphics to vram
+    lda #datasize(title_bg2gfx)         ;gfx size
+    ldx #!bg1tiles+$200                 ;destination in vram
     jsl load_buffertovram               ;dma gfx to vram
     
     ;============================== load bg2 tilemap =============================
     ;tilemap to buffer
-    lda #bank(titledata_bg2map)
+    
+    lda #bank(title_bg2map)
     sta p_2
         
-    lda #titledata_bg2map               ;tilemap pointer
+    lda #title_bg2map                   ;tilemap pointer
     sta p_0
         
-    lda #datasize(titledata_bg2map)     ;tilemap size
+    lda #datasize(title_bg2map)         ;tilemap size
     jsl load_romtolevelbuffer           ;copy tilemap to level buffer
         
     ;buffer to vram
-    lda #datasize(titledata_bg2map)     ;tilemap size
+    lda #datasize(title_bg2map)         ;tilemap size
     ldx #!bg2tilemap                    ;destination in vram
     jsl load_levelbuffertovram          ;dma tilemap to vram
     
     ;============================== load bg3 graphics ============================
     ;gfx to buffer
-    lda #bank(titledata_bg3gfx)
+    lda #bank(title_bg3gfx)
     sta p_2
         
-    lda #titledata_bg3gfx
+    lda #title_bg3gfx
     sta p_0
         
-    lda #datasize(titledata_bg3gfx)
+    lda #datasize(title_bg3gfx)
     jsl load_romtobuffer
 
     ;buffer to vram
-    lda #datasize(titledata_bg3gfx)     ;gfx size
+    lda #datasize(title_bg3gfx)         ;gfx size
     ldx #!bg3tiles                      ;destination in vram
     jsl load_buffertovram               ;dma gfx to vram
     
     ;============================== load bg3 tilemap =============================
-    lda #bank(titledata_bg3map)
+    lda #bank(title_bg3map)
     sta p_2
         
-    lda #titledata_bg3map               ;tilemap pointer
+    lda #title_bg3map                   ;tilemap pointer
     sta p_0
         
-    lda #datasize(titledata_bg3map)     ;tilemap size
+    lda #datasize(title_bg3map)         ;tilemap size
     jsl load_romtolevelbuffer           ;copy tilemap to level buffer
 
     ;load title bg3 tilemap to vram
-    lda #datasize(titledata_bg3map)     ;tilemap size
+    lda #datasize(title_bg3map)         ;tilemap size
     ldx #!bg3tilemap                    ;destination in vram
     jsl load_levelbuffertovram          ;dma tilemap to vram
     
     ;============================= load title palette ============================
-    lda #bank(titledata_pal)
-    ldx #titledata_pal
+    lda #bank(title_pal)
+    ldx #title_pal
     jsl load_romtocolorbuffer
     
     ;load bg3palette
     ;inline because frudge it we'll do it live
     ldx #$0020
     -
-    lda.l titledata_pal+$20,x
+    lda.l title_pal+$20,x
     sta w_cgrambuffer,x
     dex
     dex
     bpl -
     
+    lda #$0000
+    sta w_cgrambuffer+2
+    lda #$7fff
+    sta w_cgrambuffer+4     ;you are going to regret this
+    lda #$03dd
+    sta w_cgrambuffer
     
     ;=================== load title sprite graphics ==============================
-    lda #bank(titledata_spritegfx)
+    lda #bank(title_spritegfx)
     sta p_2
         
-    lda #titledata_spritegfx
+    lda #title_spritegfx
     sta p_0
         
-    lda #datasize(titledata_spritegfx)
+    lda #datasize(title_spritegfx)
     jsl load_romtobuffer
         
-    lda #datasize(titledata_spritegfx)  ;gfx size
+    lda #datasize(title_spritegfx)      ;gfx size
     ldx #!spritegfx                     ;destination in vram
     jsl load_buffertovram               ;dma gfx to vram
     
@@ -440,7 +470,7 @@ setuptitle: {
     
     ldx #$0100
     -
-    lda.l titledata_spritepal,x
+    lda.l title_spritepal,x
     sta.l w_cgrambuffer+$100,x
     dex
     dex
@@ -470,11 +500,11 @@ setuptitle: {
     jsl hdma_clearall
     jsl hdma_clearchannels
     
-    ldy #hdma_sinewave_indirect
-    ldx #$0002
-    lda #!hdma_params_default
-    ;lda #$0e42
-    jsl hdma_spawn
+    ;ldy #hdma_sinewave_indirect
+    ;ldx #$0002
+    ;lda #!hdma_params_default
+    ;;lda #$0e42
+    ;jsl hdma_spawn
     
     ;ldy #hdma_sinewave_indirect
     ;ldx #$0004
@@ -492,8 +522,8 @@ setuptitle: {
     lda #$00ff
     sta w_bg3yscroll
     
-    lda #$0070
-    sta w_bg2yscroll
+    ;lda #$0070
+    ;sta w_bg2yscroll
     
     lda #!layer_blend_titlescreen
     sta w_layerblendmode
@@ -553,17 +583,17 @@ setupoptionsmenu: {
     jsl load_bg3tilesupload
     
     ;============================== load bg3 tilemap =============================
-    lda #bank(titledata_optionsbg3map)
+    lda #bank(title_optionsbg3map)
     sta p_2
         
-    lda #titledata_optionsbg3map                ;tilemap pointer
+    lda #title_optionsbg3map                    ;tilemap pointer
     sta p_0
         
-    lda #datasize(titledata_optionsbg3map)      ;tilemap size
+    lda #datasize(title_optionsbg3map)          ;tilemap size
     jsl load_romtolevelbuffer                   ;copy tilemap to level buffer
 
     ;load title bg3 tilemap to vram
-    lda #datasize(titledata_optionsbg3map)      ;tilemap size
+    lda #datasize(title_optionsbg3map)          ;tilemap size
     ldx #!bg3tilemap                            ;destination in vram
     jsl load_levelbuffertovram                  ;dma tilemap to vram
     

@@ -15,7 +15,7 @@
     
     ..list: {
         dw $0008    ;number of frames (timer nominal value)
-        dw $0040    ;starting color index from start of cg ram buffer
+        dw $0120    ;starting color index from start of cg ram buffer
             ;the colors
         dw $0000, $1E73, $26E6, $422C, $4AA6, $6246, $0800, $2800, $54CA, $28EA, $44F3, $4A14, $2854, $1875, $3173, $082A, glow_inst_done,
            $0000, $2610, $2E89, $39CE, $3E49, $5609, $0400, $2021, $492B, $2108, $3D30, $4A31, $28B1, $20D2, $35B0, $0C48, glow_inst_done,

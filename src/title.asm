@@ -10,7 +10,7 @@ title: {
         
         lda w_bg2yscroll
         adc #$0000
-        sta w_bg2yscroll
+        ;sta w_bg2yscroll
         
 
         lda w_menu_var1         ;bg2 x scroll subpixels
@@ -20,11 +20,12 @@ title: {
         
         lda w_bg2xscroll
         adc #$0000
-        sta w_bg2xscroll
+        ;sta w_bg2xscroll
         
         lda w_nmicounter
         bit #$0007
         bne +
+        
         
         lda w_menu_state
         asl
@@ -277,9 +278,9 @@ title: {
     
     .cursorpositions: {
             ;x,     y
-        dw $0030,   $0098       ;position when on "start game"
-        dw $0030,   $00ae       ;position when on "resume game"
-        dw $0030,   $00c4       ;position when on "options"
+        dw $0050,   $00a8       ;position when on "start game"
+        dw $0050,   $00b8+2       ;position when on "resume game"
+        dw $0050,   $00c8+4       ;position when on "options"
     }
     
     .cursorspritemap: {
