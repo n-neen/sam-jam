@@ -278,9 +278,9 @@ title: {
     
     .cursorpositions: {
             ;x,     y
-        dw $0050,   $00a8       ;position when on "start game"
-        dw $0050,   $00b8+2       ;position when on "resume game"
-        dw $0050,   $00c8+4       ;position when on "options"
+        dw $0050,   $00a8         ;position when on "view intro"
+        dw $0050,   $00b8+2       ;position when on "start game"
+        dw $0050,   $00c8+4       ;position when on "broken menu"
     }
     
     .cursorspritemap: {

@@ -1388,7 +1388,7 @@
 000d b02b279b ./src/obj_def.asm
 000e 4c098d6c c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/hud.asm
 000f 03c9930d c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/speech.asm
-0010 51fbc1b7 c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/title.asm
+0010 afb3b6f2 c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/title.asm
 0011 a38b517a c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/shot/shot.asm
 0012 ea166785 c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/shot/common.asm
 0013 c1a243dc c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/src/shot/bubble.asm
@@ -1433,7 +1433,7 @@
 003a 86433ab0 c:/users/keenan/desktop/sam_jam_gam/sam_jam/sam jam/sam_jam.asm
 
 [rom checksum]
-8c53656f
+4147b5e6
 
 [addr-to-line mapping]
 80:8000 0000:00000003
