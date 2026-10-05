@@ -92,6 +92,9 @@
 !player_hurt_cooldown_default   =   $0020
 
 
+!player_sprite_fae              =   $0000
+!player_sprite_ship             =   $0001
+
 ;================================ oam
 
 !oam_hi_byte_buffer_size        =   $001f*4

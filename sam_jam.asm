@@ -74,6 +74,7 @@ org $828000
         incsrc "./src/color_cycling/blue_backdrop.asm"
         incsrc "./src/color_cycling/triangle_backdrop.asm"
         incsrc "./src/color_cycling/triangle_glow_mid.asm"
+        incsrc "./src/color_cycling/shore.asm"
         
     incsrc "./src/hdma/hdma.asm"
         incsrc "./src/hdma/sinewave_indirect.asm"
@@ -114,7 +115,7 @@ org $878000
     
 org $888000
     incsrc "./data/inc/88.asm"
-    print "88 end: ", pc, " "
+    print "88 end: ", pc, " room data: shore, sea levels"
 
 org $898000
     incsrc "./data/inc/89.asm"

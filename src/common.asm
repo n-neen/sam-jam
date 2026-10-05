@@ -112,6 +112,9 @@ scenetransition: {
     lda $0010,x
     sta.l w_level_hudstring_ptr
     
+    lda $0012,x
+    sta.l w_player_sprite_index
+    
     plb
     rts
     

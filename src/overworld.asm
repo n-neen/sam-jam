@@ -168,7 +168,7 @@ overworld: {
         ..0: {
             db $15                      ;x
             db $bd                      ;y
-            dw scenedef_room1           ;target room
+            dw scenedef_shore           ;target room
             dw overworld_node_exit_0    ;valid directions to move
         }
         

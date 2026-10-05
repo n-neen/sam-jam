@@ -150,6 +150,8 @@ w: {
         ..invertpalette         : skip 2    ;boolean
         ..hurtglowcooldown      : skip 2    ;maybe this isn't needed? idk..
         
+        ..sprite_index          : skip 2
+        
         print "player end   ", pc
     }
     

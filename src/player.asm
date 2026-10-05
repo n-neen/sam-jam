@@ -1068,7 +1068,7 @@ player: {
 ;======================================== PLAYER_DRAW ======================================
 ;no offscreen handling
 ;does have oam high table handling
-    
+
     .draw: {
         ;used in routine:
         ;p_0 = counter for number of sprites to draw
@@ -1102,34 +1102,12 @@ player: {
         ;lsr
         ;sta p_4
         
-        ldx w_oam_index
-        
-        lda w_nmicounter
-        bit #$0007
-        bne +
-        
-        lda w_player_animationtimer             ;timer cycling 0-8
-        inc
-        sta w_player_animationtimer
-        cmp #$0008
-        bmi +
-        stz w_player_animationtimer
-        lda #$0000
-        +
-        lda w_player_animationtimer             ;y = index for spritemap lists
+        lda w_player_sprite_index
         asl
-        tay
+        tax
+        jsr (player_draw_routines,x)            ;returns y = spritemap ptr
         
-        lda w_player_direction
-        bit #!controller_lf|!controller_rt
-        bne ..h
-        lda player_spritemaplist_vertical,y
-        bra ..v
-        ..h
-        lda player_spritemaplist_horizontal,y
-        ..v
-        
-        tay                                     ;y = ptr to spritemap
+        ldx w_oam_index
         
         lda $0000,y
         and #$00ff
@@ -1185,6 +1163,51 @@ player: {
         plx
         plb
         rts
+        
+        
+        ..routines: {
+            dw player_draw_fae
+            dw player_draw_ship
+        }
+        
+        ..ship: {
+            ldy #player_spritemap_ship
+            
+            rts
+        }
+        
+        ..fae: {
+            ;returns y = spritemap ptr
+        
+            lda w_nmicounter
+            bit #$0007
+            bne +
+            
+            lda w_player_animationtimer             ;timer cycling 0-8
+            inc
+            sta w_player_animationtimer
+            cmp #$0008
+            bmi +
+            stz w_player_animationtimer
+            lda #$0000
+            +
+            lda w_player_animationtimer             ;y = index for spritemap lists
+            asl
+            tay
+            
+            lda w_player_direction
+            bit #!controller_lf|!controller_rt
+            bne ..h
+            lda player_spritemaplist_vertical,y
+            bra ..v
+            ..h
+            lda player_spritemaplist_horizontal,y
+            ..v
+            
+            tay                                     ;y = ptr to spritemap
+            
+            rts
+        }
     }
     
     .spritemaplist: {
@@ -1208,6 +1231,8 @@ player: {
             dw player_spritemap_15
             dw player_spritemap_16
             dw player_spritemap_17
+        ..ship
+            dw player_spritemap_ship
     }
     
     
@@ -1221,13 +1246,17 @@ player: {
         ;       tile
         ;
         
-        ..circle: {
-            db 04
-            ;   xx     yy     tt   vhppccct   hh
-            db $00-4, $00-4, $c9, %00110000, $00
-            db $00-4, $08-4, $c9, %10110000, $00
-            db $08-4, $00-4, $c9, %01110000, $00
-            db $08-4, $08-4, $c9, %11110000, $00
+        ..ship: {
+            db 06
+            ;   xx   yy   tt   vhppccct   hh
+            db $00, $00, $00, %00110111, $00
+            db $08, $00, $01, %00110111, $00
+            
+            db $00, $08, $10, %00110111, $00
+            db $08, $08, $11, %00110111, $00
+            
+            db $00, $10, $20, %00110111, $00
+            db $08, $10, $21, %00110111, $00
         }
         
         ;vertical ====================================================================================

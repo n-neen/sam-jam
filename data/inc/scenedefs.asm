@@ -69,6 +69,18 @@ scenedef: {
         db !layer_blend_default_withbg2m    ;one byte, index for handler    ;$15
 
 
+    .shore:
+        dl shore                            ;long pointer to the scene data ;$0
+        dw shore_pal                        ;inbank pointer to palette,     ;$3
+        dw shore_gfx                        ;graphics,                      ;$5
+        dw shore_map                        ;tilemap                        ;$7
+        dw datasize(shore_gfx)              ;graphics size                  ;$9
+        dw datasize(shore_map)              ;tilemap size                   ;$b
+        dw properties_shore                 ;gameplay properties            ;$d; in scenedef
+        dw $0000                            ;list of hdma objects to spawn  ;$f
+        dw glowlist_shore                   ;list of glow objects to spawn  ;$11
+        dw $0000                            ;background data list           ;$13
+        db !layer_blend_default             ;one byte, index for handler    ;$15
 
 }
 
@@ -93,6 +105,7 @@ properties: {
 
 ; ===================================== gameplay ===========================================
 ; ===================================== rooms ==============================================
+; ================================ properties ==============================================
 
     .room1: {                           ;description                ;number of bytes in
         dw !state_loadgame              ;program mode to use        ;0
@@ -102,16 +115,29 @@ properties: {
         dw collisionmap_room1           ;                           ;c
         dw faelist_room1                ;list of fae for the room   ;e
         dw str_hudstring_room1          ;string to print on hud     ;$10
+        dw $0000                        ;player type (low nibble gfx/sprite index)
+    }
+    
+    .shore: {                           ;description                ;number of bytes in
+        dw !state_loadgame              ;program mode to use        ;0
+        dw $0001, $0001                 ;starting camera position   ;2,4
+        dw $0028, $0058                 ;starting player position   ;6,8
+        dw objlist_shore                ;object list pointer        ;a
+        dw collisionmap_shore           ;                           ;c
+        dw faelist_shore                ;list of fae for the room   ;e
+        dw str_hudstring_shore          ;string to print on hud     ;$10
+        dw $0001                        ;player type (low nibble gfx/sprite index)
     }
     
     .overworld: {
-        dw !state_setupoverworld        ;program mode to use        ;0
-        dw $0001, $0001                 ;starting camera position   ;2,4
-        dw $0028, $0058                 ;starting player position   ;6,8
-        dw objlist_overworld            ;object list pointer        ;a
-        dw collisionmap_room1           ;                           ;c
-        dw faelist_overworld            ;list of fae for the room   ;e
-        dw str_hudstring_room1          ;string to print on hud     ;$10
+        dw !state_setupoverworld        ;program mode to use                            ;0
+        dw $0001, $0001                 ;starting camera position                       ;2,4
+        dw $0028, $0058                 ;starting player position                       ;6,8
+        dw objlist_overworld            ;object list pointer                            ;a
+        dw collisionmap_room1           ;                                               ;c
+        dw faelist_overworld            ;list of fae for the room                       ;e
+        dw str_hudstring_room1          ;string to print on hud                         ;$10
+        dw $0000                        ;player type (not actually used in overworld)   ;$12
     }
 }
 
@@ -171,6 +197,12 @@ glowlist: {
     
     .gameplaydefault: {
         dw glow_animationtest
+        dw $ffff
+    }
+    
+    
+    .shore: {
+        dw glow_shore
         dw $ffff
     }
 }
