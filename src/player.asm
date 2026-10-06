@@ -1171,9 +1171,47 @@ player: {
         }
         
         ..ship: {
-            ldy #player_spritemap_ship
+            ;returns y = spritemap ptr
+            lda w_player_lastknowndirection          ;1, 2, 4, 8
+            bit #!controller_up
+            beq +
+            {
+                ldx #$0006
+            }
+            +
+            
+            bit #!controller_dn
+            beq +
+            {
+                ldx #$0004
+            }
+            +
+            
+            bit #!controller_lf
+            beq +
+            {
+                ldx #$0002
+            }
+            +
+            
+            bit #!controller_rt
+            beq +
+            {
+                ldx #$0000
+            }
+            +
+            
+            lda player_draw_spritemaplist_ship,x
+            tay
             
             rts
+        }
+        
+        ..spritemaplist_ship: {
+            dw player_spritemap_shipright   ;0
+            dw player_spritemap_shipleft    ;2
+            dw player_spritemap_shipdown    ;4
+            dw player_spritemap_shipup      ;6
         }
         
         ..fae: {
@@ -1231,8 +1269,6 @@ player: {
             dw player_spritemap_15
             dw player_spritemap_16
             dw player_spritemap_17
-        ..ship
-            dw player_spritemap_ship
     }
     
     
@@ -1246,7 +1282,20 @@ player: {
         ;       tile
         ;
         
-        ..ship: {
+        ..shipleft: {
+            db 06
+            ;   xx   yy   tt   vhppccct   hh
+            db $08, $00, $00, %01110111, $00
+            db $00, $00, $01, %01110111, $00
+            
+            db $08, $08, $10, %01110111, $00
+            db $00, $08, $11, %01110111, $00
+            
+            db $08, $10, $20, %01110111, $00
+            db $00, $10, $21, %01110111, $00
+        }
+        
+        ..shipright: {
             db 06
             ;   xx   yy   tt   vhppccct   hh
             db $00, $00, $00, %00110111, $00
@@ -1257,6 +1306,32 @@ player: {
             
             db $00, $10, $20, %00110111, $00
             db $08, $10, $21, %00110111, $00
+        }
+        
+        ..shipup: {
+            db 06
+            ;   xx   yy   tt   vhppccct   hh
+            db $00, $00, $02, %00110111, $00
+            db $08, $00, $03, %00110111, $00
+            
+            db $00, $08, $12, %00110111, $00
+            db $08, $08, $13, %00110111, $00
+            
+            db $00, $10, $22, %00110111, $00
+            db $08, $10, $23, %00110111, $00
+        }
+        
+        ..shipdown: {
+            db 06
+            ;   xx   yy   tt   vhppccct   hh
+            db $08, $00, $02, %01110111, $00
+            db $00, $00, $03, %01110111, $00
+            
+            db $08, $08, $12, %01110111, $00
+            db $00, $08, $13, %01110111, $00
+            
+            db $08, $10, $22, %01110111, $00
+            db $00, $10, $23, %01110111, $00
         }
         
         ;vertical ====================================================================================
