@@ -218,6 +218,13 @@ overworld: {
             dw overworld_node_exit_7    ;valid directions to move
         }
         
+        ..8: {
+            db 12                       ;x
+            db 36                       ;y
+            dw scenedef_room1           ;target room
+            dw overworld_node_exit_8    ;valid directions to move
+        }
+        
         ..exit: {
                 ;target node, path ptr
             ...0:
@@ -229,7 +236,7 @@ overworld: {
             ...1:
                 dw $0000, $0000                             ;up
                 dw overworld_node_0, overworld_path_1       ;down
-                dw overworld_node_7, overworld_node_path_0  ;left
+                dw overworld_node_7, overworld_path_16      ;left
                 dw overworld_node_2, overworld_path_2       ;right
                 
             ...2:
@@ -247,26 +254,32 @@ overworld: {
             ...4:
                 dw $0000, $0000                             ;up
                 dw overworld_node_3, overworld_path_7       ;down
-                dw overworld_node_5, overworld_node_path_0  ;left
+                dw overworld_node_5, overworld_path_8       ;left
                 dw $0000, $0000                             ;right
                 
             ...5:
-                dw overworld_node_6, overworld_node_path_0  ;up
-                dw overworld_node_7, overworld_node_path_0  ;down
+                dw overworld_node_6, overworld_path_12      ;up
+                dw overworld_node_7, overworld_path_10      ;down
                 dw $0000, $0000                             ;left
-                dw overworld_node_4, overworld_node_path_0  ;right
+                dw overworld_node_4, overworld_path_9       ;right
                 
             ...6:
-                dw $0000, $0000                             ;up
-                dw overworld_node_5, overworld_node_path_0  ;down
+                dw overworld_node_8, overworld_path_17      ;up
+                dw overworld_node_5, overworld_path_13      ;down
                 dw $0000, $0000                             ;left
                 dw $0000, $0000                             ;right
                 
             ...7:
                 dw $0000, $0000                             ;up
-                dw overworld_node_1, overworld_node_path_0  ;down
+                dw overworld_node_1, overworld_path_15      ;down
                 dw $0000, $0000                             ;left
-                dw overworld_node_5, overworld_node_path_0  ;right
+                dw overworld_node_5, overworld_path_11      ;right
+                
+            ...8:
+                dw $0000, $0000                             ;up
+                dw $0000, $0000                             ;down
+                dw $0000, $0000                             ;left
+                dw overworld_node_6, overworld_path_14      ;right
         }
         
         ..path: {

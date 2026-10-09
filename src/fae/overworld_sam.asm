@@ -45,23 +45,24 @@
         
         ;bra ++      ;debrug removal
         
-        ;lda w_controller
-        ;bit #!controller_a
-        ;beq +
-        ;{
-        ;    jsr fae_oversam_debuginput
-        ;    jsr fae_oversam_debugrecordpos
-        ;}
-        ;+
+        lda w_controller
+        bit #!controller_a
+        beq +
+        {
+            jsr fae_oversam_debuginput
+            jsr fae_oversam_debugrecordpos
+            bra ...return
+        }
+        +
         
-        ;lda w_controller
-        ;bit #!controller_b
-        ;beq +
-        ;{
-        ;    stz w_fae_var2,x
-        ;}
-        ;+
-        ;++
+        lda w_controller
+        bit #!controller_b
+        beq +
+        {
+            stz w_fae_var2,x
+        }
+        +
+        ++
         
         lda w_fae_var1,x                ;state
         asl
