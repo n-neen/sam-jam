@@ -107,6 +107,16 @@ properties: {
 ; ===================================== rooms ==============================================
 ; ================================ properties ==============================================
 
+;misc properties:
+    ;player type:
+        ;000x = player type index
+    
+    ;$x000 nibble = level type
+    ;ends up shifted to 000x and in w_level_type
+        ;0000 = normal level
+        ;0001 = large level
+
+
     .room1: {                           ;description                ;number of bytes in
         dw !state_loadgame              ;program mode to use        ;0
         dw $0001, $0001                 ;starting camera position   ;2,4
@@ -115,7 +125,7 @@ properties: {
         dw collisionmap_room1           ;                           ;c
         dw faelist_room1                ;list of fae for the room   ;e
         dw str_hudstring_room1          ;string to print on hud     ;$10
-        dw $0000                        ;player type (low nibble gfx/sprite index)
+        dw $0000                        ;misc properties: level type, player type
     }
     
     .shore: {                           ;description                ;number of bytes in
@@ -126,7 +136,7 @@ properties: {
         dw collisionmap_shore           ;                           ;c
         dw faelist_shore                ;list of fae for the room   ;e
         dw str_hudstring_shore          ;string to print on hud     ;$10
-        dw $0001                        ;player type (low nibble gfx/sprite index)
+        dw $0001                        ;misc properties: level type, player type
     }
     
     .overworld: {
@@ -137,7 +147,7 @@ properties: {
         dw collisionmap_room1           ;                                               ;c
         dw faelist_overworld            ;list of fae for the room                       ;e
         dw str_hudstring_room1          ;string to print on hud                         ;$10
-        dw $0000                        ;player type (not actually used in overworld)   ;$12
+        dw $0000                        ;misc properties: level type, player type       ;$12
     }
 }
 

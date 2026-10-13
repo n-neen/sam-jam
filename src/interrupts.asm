@@ -519,6 +519,9 @@ nmippuregisters: {
         lda w_colormathlogic
         sta $2130
         
+        lda w_bgmode
+        sta $2105
+        
     }
     rep #$20
     

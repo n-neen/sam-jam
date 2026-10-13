@@ -113,7 +113,17 @@ scenetransition: {
     sta.l w_level_hudstring_ptr
     
     lda $0012,x
+    pha
+    and #$000f
     sta.l w_player_sprite_index
+    pla
+    and #$f000
+    xba
+    lsr
+    lsr
+    lsr
+    lsr
+    sta.l w_level_type
     
     plb
     rts
@@ -295,6 +305,22 @@ initspecialfx: {
     jsl hdma_spawnfromlist
     
     rts
+}
+
+doubletilemap: {
+    sep #$20
+    {
+        lda w_bgmode
+        ora #%00010000
+        sta w_bgmode
+        sta $2105
+    }
+    rep #$20
+    
+    
+    ;set level width
+    ;set camera bounds
+    ;need collision map that's larger? or no, each tile is just larger? hm
 }
 
 ;===========================================================================================

@@ -16,4 +16,23 @@ make gravity
     
     
 maybe remove sram implementation if not enough time
+    also sram is banned from competition
+
+
+
+level size changes:
+    !level_width needs to be a variable w_level_width
     
+    'locateontile' in common.asm
+        needs the player position /8 changed to /16?
+        
+    player_boundscheck
+    
+    uhh, also all fae sprite drawing?
+        not sure it will come up actually?
+        
+    anywhere else that a tile is assumed to be 8 pixels.... uhhh
+        ?
+        
+    w_scroll_*bound
+        needs setting in common/doubletilemap

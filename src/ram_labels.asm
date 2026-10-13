@@ -77,6 +77,8 @@ w: {
     .colormathlayers        : skip 1
     .colormathlogic         : skip 1
     
+    .bgmode                 : skip 1
+    
     ;dma arguments
     .dmabaseaddr            : skip 2
     .dmasrcptr              : skip 2
@@ -174,6 +176,8 @@ w: {
         ..faelist_ptr       : skip 2
         
         ..hudstring_ptr     : skip 2
+        
+        ..type              : skip 2
     }
     
     .scroll: {

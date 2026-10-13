@@ -147,6 +147,7 @@ init: {
         
         lda.b #%00001001    ;drawing mode: 1 with bg3 priority
         sta $2105
+        sta w_bgmode
         
         lda #%00000010
         sta w_colormathlogic

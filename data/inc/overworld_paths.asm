@@ -17,8 +17,4 @@ overworld_path: {
     .15:  incbin "./data/overworld_paths/15.bin"
     .16:  incbin "./data/overworld_paths/16.bin"
     .17:  incbin "./data/overworld_paths/17.bin"
-    
-    ;.2:  incbin "./data/overworld_paths/2.bin"
-    ;.2:  incbin "./data/overworld_paths/2.bin"
-    ;.2:  incbin "./data/overworld_paths/2.bin"
 }   

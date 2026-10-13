@@ -946,6 +946,8 @@ loadgame: {
     jsl load_scene                  ;depends on a call to scenetransition having been done
     jsl load_bg3colortobuffer
     
+    ;jsr doubletilemap
+    
     stz w_hud_glow
     jsl hud_handleglow
     

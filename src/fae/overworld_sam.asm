@@ -43,7 +43,7 @@
         
         ;print pc
         
-        ;bra ++      ;debrug removal
+        bra ++      ;debrug removal
         
         lda w_controller
         bit #!controller_a
