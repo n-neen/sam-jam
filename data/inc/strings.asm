@@ -29,6 +29,7 @@ str: {
         ;length is currently mandated by !hud_room_string_length
         ..room1:        db "room1     "
         ..shore:        db "shoreline "
+        ..space:        db "space     "
     }
     
     .piecesspeech: {

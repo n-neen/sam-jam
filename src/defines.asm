@@ -70,6 +70,9 @@
 
 !starting_room                  =   scenedef_overworld
 
+!level_type_normal              =   $0000
+!level_type_large               =   $0001
+
 ;================================ player
 
 !player_xsize_default           =   $0004

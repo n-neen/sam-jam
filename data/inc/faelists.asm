@@ -42,6 +42,12 @@ faelist: {
         dw $ffff
     }
     
+    .space: {
+                         ;type       x      y     var1   var2   var3
+        ;%fae_list_entry (fae_test, $0080, $0080, $0001, $0000, $0000)
+        dw $ffff
+    }
+    
     
     .overworld: {
                         ;type          x      y     var1   var2   var3

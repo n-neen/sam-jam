@@ -110,8 +110,17 @@ load: {
         lda.l w_level_collisionmap_ptr
         sta p_0
         
-        ldy #!collision_map_size
-        ldx #!collision_map_size
+        lda w_level_type
+        bne +
+        {
+            ldy #!collision_map_size
+            ldx #!collision_map_size
+            bra ++
+        }
+        +
+        ldy #!collision_map_size*2
+        ldx #!collision_map_size*2
+        ++
         
         -
         lda (p_0),y

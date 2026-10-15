@@ -194,7 +194,7 @@ locateontile: {
     
     sta $4202
     
-    lda.b #!level_width ;player y*level width
+    lda w_level_width   ;player y*level width
     sta $4203
     
     rep #$20
@@ -317,10 +317,25 @@ doubletilemap: {
     }
     rep #$20
     
+    lda #!scroll_upbound_default*3
+    sta w_scroll_upbound
+    
+    lda #!scroll_downbound_default*3
+    sta w_scroll_downbound
+    
+    lda #!scroll_leftbound_default*3
+    sta w_scroll_leftbound
+    
+    lda #!scroll_rightbound_default*3
+    sta w_scroll_rightbound
+    
+    lda.w #!level_width*2
+    sta w_level_width
     
     ;set level width
     ;set camera bounds
     ;need collision map that's larger? or no, each tile is just larger? hm
+    rts
 }
 
 ;===========================================================================================

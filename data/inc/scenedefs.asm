@@ -82,6 +82,20 @@ scenedef: {
         dw $0000                            ;background data list           ;$13
         db !layer_blend_default             ;one byte, index for handler    ;$15
 
+
+    .space:
+        dl space                            ;long pointer to the scene data ;$0
+        dw space_pal                        ;inbank pointer to palette,     ;$3
+        dw space_gfx                        ;graphics,                      ;$5
+        dw space_map                        ;tilemap                        ;$7
+        dw datasize(space_gfx)              ;graphics size                  ;$9
+        dw datasize(space_map)              ;tilemap size                   ;$b
+        dw properties_space                 ;gameplay properties            ;$d; in scenedef
+        dw $0000                            ;list of hdma objects to spawn  ;$f
+        dw $0000                            ;list of glow objects to spawn  ;$11
+        dw $0000                            ;background data list           ;$13
+        db !layer_blend_default             ;one byte, index for handler    ;$15
+
 }
 
 ;===========================================================================================
@@ -137,6 +151,17 @@ properties: {
         dw faelist_shore                ;list of fae for the room   ;e
         dw str_hudstring_shore          ;string to print on hud     ;$10
         dw $0001                        ;misc properties: level type, player type
+    }
+    
+    .space: {                           ;description                ;number of bytes in
+        dw !state_loadgame              ;program mode to use        ;0
+        dw $0001, $0001                 ;starting camera position   ;2,4
+        dw $0028, $0058                 ;starting player position   ;6,8
+        dw objlist_space                ;object list pointer        ;a
+        dw collisionmap_space           ;                           ;c
+        dw faelist_space                ;list of fae for the room   ;e
+        dw str_hudstring_space          ;string to print on hud     ;$10
+        dw $1001                        ;misc properties: level type, player type
     }
     
     .overworld: {

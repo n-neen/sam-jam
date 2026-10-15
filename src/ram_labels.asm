@@ -178,6 +178,8 @@ w: {
         ..hudstring_ptr     : skip 2
         
         ..type              : skip 2
+        
+        ..width             : skip 2
     }
     
     .scroll: {

@@ -946,8 +946,6 @@ loadgame: {
     jsl load_scene                  ;depends on a call to scenetransition having been done
     jsl load_bg3colortobuffer
     
-    ;jsr doubletilemap
-    
     stz w_hud_glow
     jsl hud_handleglow
     
@@ -958,17 +956,33 @@ loadgame: {
     ;initialize scroll
     stz w_scroll_direction
     
-    lda #!scroll_upbound_default
-    sta w_scroll_upbound
+    {
+        lda w_level_type
+        ;cmp #!level_type_normal        ;optimize for 0/bne
+        bne +
+        
+        lda #!scroll_upbound_default
+        sta w_scroll_upbound
+        
+        lda #!scroll_downbound_default
+        sta w_scroll_downbound
+        
+        lda #!scroll_leftbound_default
+        sta w_scroll_leftbound
+        
+        lda #!scroll_rightbound_default
+        sta w_scroll_rightbound
+        
+        lda.w #!level_width
+        sta w_level_width
+        
+        bra ++
+        
+        +
+        jsr doubletilemap                           ;double size level <---------------------------------
+        ++
+    }
     
-    lda #!scroll_downbound_default
-    sta w_scroll_downbound
-    
-    lda #!scroll_leftbound_default
-    sta w_scroll_leftbound
-    
-    lda #!scroll_rightbound_default
-    sta w_scroll_rightbound
     
     ;initialize message tilemap
     jsr layer3off

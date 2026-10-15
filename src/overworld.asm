@@ -175,14 +175,14 @@ overworld: {
         ..1: {
             db $45                      ;x
             db $96                      ;y
-            dw scenedef_room1           ;target room
+            dw scenedef_shore           ;target room
             dw overworld_node_exit_1    ;valid directions to move
         }
         
         ..2: {
             db 128                      ;x
             db 152                      ;y
-            dw scenedef_room1           ;target room
+            dw scenedef_space           ;target room
             dw overworld_node_exit_2    ;valid directions to move
         }
         
