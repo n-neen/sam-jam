@@ -118,8 +118,8 @@ load: {
             bra ++
         }
         +
-        ldy #!collision_map_size*2
-        ldx #!collision_map_size*2
+        ldy #!collision_map_size*4
+        ldx #!collision_map_size*4
         ++
         
         -

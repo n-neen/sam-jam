@@ -92,7 +92,7 @@ scenedef: {
         dw datasize(space_map)              ;tilemap size                   ;$b
         dw properties_space                 ;gameplay properties            ;$d; in scenedef
         dw $0000                            ;list of hdma objects to spawn  ;$f
-        dw $0000                            ;list of glow objects to spawn  ;$11
+        dw glowlist_space                   ;list of glow objects to spawn  ;$11
         dw $0000                            ;background data list           ;$13
         db !layer_blend_default             ;one byte, index for handler    ;$15
 
@@ -161,7 +161,7 @@ properties: {
         dw collisionmap_space           ;                           ;c
         dw faelist_space                ;list of fae for the room   ;e
         dw str_hudstring_space          ;string to print on hud     ;$10
-        dw $1001                        ;misc properties: level type, player type
+        dw $1002                        ;misc properties: level type, player type
     }
     
     .overworld: {
@@ -235,9 +235,13 @@ glowlist: {
         dw $ffff
     }
     
-    
     .shore: {
         dw glow_shore
+        dw $ffff
+    }
+    
+    .space: {
+        dw glow_space
         dw $ffff
     }
 }

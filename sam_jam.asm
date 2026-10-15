@@ -75,6 +75,7 @@ org $828000
         incsrc "./src/color_cycling/triangle_backdrop.asm"
         incsrc "./src/color_cycling/triangle_glow_mid.asm"
         incsrc "./src/color_cycling/shore.asm"
+        incsrc "./src/color_cycling/space.asm"
         
     incsrc "./src/hdma/hdma.asm"
         incsrc "./src/hdma/sinewave_indirect.asm"

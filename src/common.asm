@@ -317,16 +317,16 @@ doubletilemap: {
     }
     rep #$20
     
-    lda #!scroll_upbound_default*3
+    lda #!scroll_upbound_default
     sta w_scroll_upbound
     
-    lda #!scroll_downbound_default*3
+    lda #!scroll_downbound_default+$200
     sta w_scroll_downbound
     
-    lda #!scroll_leftbound_default*3
+    lda #!scroll_leftbound_default
     sta w_scroll_leftbound
     
-    lda #!scroll_rightbound_default*3
+    lda #!scroll_rightbound_default+$200
     sta w_scroll_rightbound
     
     lda.w #!level_width*2

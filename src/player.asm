@@ -1168,6 +1168,35 @@ player: {
         ..routines: {
             dw player_draw_fae
             dw player_draw_ship
+            dw player_draw_spaceship
+        }
+        
+        ..spaceship: {
+            ;returns y = spritemap ptr
+            
+            ;todo: logic for dither sprites
+            ;also the rotated ones like ship does
+            
+            lda w_nmicounter
+            bit #$0001
+            bne +
+            
+            lda player_draw_spritemaplist_spaceship+2
+            tay
+            bra ++
+            
+            +
+            lda player_draw_spritemaplist_spaceship+4
+            tay
+            
+            ++
+            rts
+        }
+        
+        ..spritemaplist_spaceship: {
+            dw player_spritemap_spaceshipup         ;0
+            dw player_spritemap_spaceshipup_dither0 ;1
+            dw player_spritemap_spaceshipup_dither1 ;2
         }
         
         ..ship: {
@@ -1281,6 +1310,75 @@ player: {
         ;    y  ^  properties
         ;       tile
         ;
+        
+        ..spaceshipup: {
+            db 14
+            ;   xx   yy   tt   vhppccct   hh
+            db $08, $00, $05, %00111111, $00
+            db $10, $00, $06, %00111111, $00
+            
+            db $00, $08, $14, %00111111, $00
+            db $08, $08, $15, %00111111, $00
+            db $10, $08, $16, %00111111, $00
+            db $18, $08, $17, %00111111, $00
+            
+            db $00, $10, $24, %00111111, $00
+            db $08, $10, $25, %00111111, $00
+            db $10, $10, $26, %00111111, $00
+            db $18, $10, $27, %00111111, $00
+            
+            db $00, $18, $34, %00111111, $00
+            db $08, $18, $35, %00111111, $00
+            db $10, $18, $36, %00111111, $00
+            db $18, $18, $37, %00111111, $00
+        }
+        
+        
+        ..spaceshipup_dither0:
+            db 14
+            ;   xx   yy   tt   vhppccct   hh
+            db $08, $00, $09, %00111111, $00
+            db $10, $00, $0a, %00111111, $00
+            
+            db $00, $08, $18, %00111111, $00
+            db $08, $08, $19, %00111111, $00
+            db $10, $08, $1a, %00111111, $00
+            db $18, $08, $1b, %00111111, $00
+            
+            db $00, $10, $28, %00111111, $00
+            db $08, $10, $29, %00111111, $00
+            db $10, $10, $2a, %00111111, $00
+            db $18, $10, $2b, %00111111, $00
+            
+            db $00, $18, $38, %00111111, $00
+            db $08, $18, $39, %00111111, $00
+            db $10, $18, $3a, %00111111, $00
+            db $18, $18, $3b, %00111111, $00
+        }
+        
+        
+        
+        ..spaceshipup_dither1: {
+            db 14
+            ;   xx   yy   tt   vhppccct   hh
+            db $08, $00, $0d, %00111111, $00
+            db $10, $00, $0e, %00111111, $00
+            
+            db $00, $08, $1c, %00111111, $00
+            db $08, $08, $1d, %00111111, $00
+            db $10, $08, $1e, %00111111, $00
+            db $18, $08, $1f, %00111111, $00
+            
+            db $00, $10, $2c, %00111111, $00
+            db $08, $10, $2d, %00111111, $00
+            db $10, $10, $2e, %00111111, $00
+            db $18, $10, $2f, %00111111, $00
+            
+            db $00, $18, $3c, %00111111, $00
+            db $08, $18, $3d, %00111111, $00
+            db $10, $18, $3e, %00111111, $00
+            db $18, $18, $3f, %00111111, $00
+        }
         
         ..shipleft: {
             db 06
